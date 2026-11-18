@@ -1,81 +1,46 @@
 ---
 import SocialIcons from './SocialIcons.astro';
+import Icon3D from './Icon3D.astro';
 const root = import.meta.env.BASE_URL;
 const links = [
-  ['Biografía', root + '#about'],
-  ['Idiomas', root + '#languages'],
-  ['Obras', root + '#works'],
-  ['Biblioteca PDF', root + '#pdf-library'],
-  ['Libros en Amazon', root + 'books/'],
+  { label: 'Inicio', href: root, key: 'inicio' },
+  { label: 'Biografía', href: root + 'sobre-mi/', key: 'sobre-mi' },
+  { label: 'Idiomas', href: root + 'idiomas/', key: 'idiomas' },
+  { label: 'Publicaciones', href: root + 'publicaciones/', key: 'publicaciones' },
+  { label: 'Biblioteca PDF', href: root + 'biblioteca-pdf/', key: 'biblioteca-pdf' },
+  { label: 'Libros', href: root + 'books/', key: 'books' },
+  { label: 'Asistente', href: root + 'asistente-literario/', key: 'asistente-literario' }
 ];
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^\/+|\/+$/g, '');
 ---
 <nav class="site-nav" aria-label="Navegación principal">
   <div class="nav-inner">
     <a class="brand" href={root} aria-label="Ahmed Oubali, inicio">
       <span class="brand-mark" aria-hidden="true">AO</span>
-      <span><strong>Ahmed Oubali</strong><small>Escritor y catedrático políglota</small></span>
+      <span><strong>Ahmed Oubali</strong><small>Escritor · Hispanista · Docente</small></span>
     </a>
     <div class="nav-links">
-      {links.map(([label, href]) => <a href={href}>{label}</a>)}
+      {links.map((item) => <a href={item.href} aria-current={path === item.key || (!path && item.key === 'inicio') ? 'page' : undefined}>{item.label}</a>)}
       <SocialIcons />
-      <a class="contact-link" href={root + '#contact'}>Contacto</a>
+      <a class="contact-link" href={root + 'contacto/'}>Contacto <Icon3D name="mail" /></a>
     </div>
-    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
-      <span aria-hidden="true">☰</span>
-    </button>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><Icon3D name="menu" /></button>
   </div>
   <div id="mobile-menu" class="mobile-menu" hidden>
-    {links.map(([label, href]) => <a href={href}>{label}</a>)}
-    <a href={root + '#contact'}>Contacto</a>
-    <SocialIcons />
+    {links.map((item) => <a href={item.href}>{item.label}</a>)}
+    <a href={root + 'contacto/'}>Contacto</a><SocialIcons />
   </div>
 </nav>
 <script>
   const toggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('#mobile-menu');
-
-  const closeMenu = () => {
-    menu?.setAttribute('hidden', '');
-    toggle?.setAttribute('aria-expanded', 'false');
-    toggle?.setAttribute('aria-label', 'Abrir menú');
-  };
-
+  const closeMenu = () => { menu?.setAttribute('hidden', ''); toggle?.setAttribute('aria-expanded', 'false'); toggle?.setAttribute('aria-label', 'Abrir menú'); };
   toggle?.addEventListener('click', () => {
     const shouldOpen = menu?.hasAttribute('hidden') ?? false;
-    if (shouldOpen) {
-      menu?.removeAttribute('hidden');
-      toggle?.setAttribute('aria-expanded', 'true');
-      toggle?.setAttribute('aria-label', 'Cerrar menú');
-    } else {
-      closeMenu();
-    }
+    if (shouldOpen) { menu?.removeAttribute('hidden'); toggle?.setAttribute('aria-expanded', 'true'); toggle?.setAttribute('aria-label', 'Cerrar menú'); }
+    else closeMenu();
   });
-
   menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      closeMenu();
-      toggle?.focus();
-    }
-  });
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) closeMenu();
-  });
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeMenu(); toggle?.focus(); } });
+  window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
 </script>
-<style>
-  .site-nav { position: sticky; top: 0; z-index: 50; background: #fffffff0; backdrop-filter: blur(14px); border-bottom: 1px solid #e7e1d9; }
-  .nav-inner { max-width: 1280px; margin: auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .brand { display: flex; align-items: center; gap: .8rem; color: #2c150b; text-decoration: none; }
-  .brand-mark { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: #2c150b; color: #d4af37; font-family: Georgia, serif; font-size: 1.2rem; }
-  .brand strong, .brand small { display: block; }
-  .brand strong { font: 700 1.35rem Georgia, serif; }
-  .brand small { font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; color: #8b0000; margin-top: .25rem; }
-  .nav-links { display: flex; align-items: center; gap: 1.1rem; font-size: .85rem; }
-  .nav-links > a, .mobile-menu > a { color: #51443d; text-decoration: none; }
-  .nav-links > a:hover, .mobile-menu > a:hover { color: #8b0000; }
-  .contact-link { background: #2c150b; color: #d4af37 !important; padding: .65rem 1rem; border-radius: 2rem; }
-  .menu-toggle { display: none; background: none; border: 0; font-size: 1.5rem; color: #2c150b; }
-  .mobile-menu { padding: 0 1.5rem 1.2rem; gap: .8rem; }
-  .mobile-menu:not([hidden]) { display: grid; }
-  @media (max-width: 900px) { .nav-links { display: none; } .menu-toggle { display: grid; place-items: center; } }
-</style>

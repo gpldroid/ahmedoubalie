@@ -1,4 +1,5 @@
 ---
+import Icon3D from './Icon3D.astro';
 const root = import.meta.env.BASE_URL;
 ---
 <section class="editorial-hero">
@@ -9,8 +10,8 @@ const root = import.meta.env.BASE_URL;
       <h1>La literatura como <em>territorio</em> de investigación y descubrimiento.</h1>
       <p class="hero-intro">Bienvenido al espacio oficial del Profesor Ahmed Oubali. Novela negra, semiótica, narrativa histórica y docencia de cinco lenguas: un recorrido intelectual abierto a lectores e investigadores.</p>
       <div class="hero-actions">
-        <a class="button-primary" href="#works">Explorar publicaciones <span aria-hidden="true">↗</span></a>
-        <a class="button-text" href="#pdf-library">Consultar biblioteca PDF <span aria-hidden="true">→</span></a>
+        <a class="button-primary" href={root + 'publicaciones/'}>Explorar publicaciones <Icon3D name="arrow" /></a>
+        <a class="button-text" href={root + 'biblioteca-pdf/'}>Consultar biblioteca PDF <Icon3D name="book" /></a>
       </div>
       <div class="hero-facts" aria-label="Datos destacados">
         <div><strong>05</strong><span>Idiomas impartidos</span></div>
@@ -25,5 +26,5 @@ const root = import.meta.env.BASE_URL;
       <div class="portrait-index"><span>01</span><span>HISPANISMO MARROQUÍ</span></div>
     </aside>
   </div>
-  <div class="hero-bottomline"><span>LECTURA · PENSAMIENTO · CULTURA</span><a href="#about">Descubrir su trayectoria ↓</a></div>
+  <div class="hero-bottomline"><span>LECTURA · PENSAMIENTO · CULTURA</span><a href={root + 'sobre-mi/'}>Descubrir su trayectoria</a></div>
 </section>

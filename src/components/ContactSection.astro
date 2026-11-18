@@ -1,11 +1,14 @@
+---
+import Icon3D from './Icon3D.astro';
+---
 <section id="contact" class="site-section contact-section">
   <div class="section-shell contact-layout">
-    <div class="contact-intro"><span class="section-eyebrow">Comunicación directa</span><h2>Contacto y consultas académicas</h2><p>Para invitaciones a conferencias, consultas sobre enseñanza de idiomas, publicaciones filológicas o adquisición de ejemplares.</p><div class="contact-detail"><span aria-hidden="true">↗</span><div><small>Blog oficial</small><a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">ahmedoubali.blogspot.com</a></div></div><div class="contact-detail"><span aria-hidden="true">⌖</span><div><small>Ubicación</small><p>Marruecos · Tetuán / Tánger</p></div></div></div>
+    <div class="contact-intro"><span class="section-eyebrow">Comunicación directa</span><h2>Contacto y consultas académicas</h2><p>Para invitaciones a conferencias, consultas sobre enseñanza de idiomas, publicaciones filológicas o adquisición de ejemplares.</p><div class="contact-detail"><span><Icon3D name="external" /></span><div><small>Blog oficial</small><a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">ahmedoubali.blogspot.com</a></div></div><div class="contact-detail"><span><Icon3D name="globe" /></span><div><small>Ubicación</small><p>Marruecos · Tetuán / Tánger</p></div></div></div>
     <div class="contact-panel"><form id="contact-form" class="contact-form">
       <div class="form-row"><label>Nombre completo<input id="contact-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre"/></label><label>Correo electrónico<input id="contact-email" name="email" type="email" required autocomplete="email" placeholder="ejemplo@correo.com"/></label></div>
       <label>Asunto de interés<select id="contact-subject" name="subject"><option>Enseñanza de idiomas</option><option>Obras literarias y novela negra</option><option>Estudios semióticos y PDF</option><option>Prensa y conferencias</option></select></label>
       <label>Mensaje<textarea id="contact-message" name="message" rows="4" required placeholder="Escribe tu consulta..."></textarea></label>
-      <button type="submit" class="contact-submit">Mostrar instrucciones de contacto <span aria-hidden="true">→</span></button>
+      <button type="submit" class="contact-submit">Mostrar instrucciones de contacto <Icon3D name="arrow" /></button>
       <p id="contact-notice" class="hidden contact-notice" role="status">Este sitio todavía no tiene configurado un servicio para recibir formularios. No se ha enviado ningún mensaje. Utiliza el enlace al blog oficial para contactar.</p>
     </form></div>
   </div>

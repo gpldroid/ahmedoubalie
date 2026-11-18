@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import books from '../data/books.json';
+import Icon3D from '../components/Icon3D.astro';
+---
+<BaseLayout title="Publicaciones y libros | Ahmed Oubali" description="Catálogo de novelas, ensayos y estudios literarios publicados por Ahmed Oubali.">
+  <main id="main-content" class="catalog-page">
+    <header class="page-hero"><span class="section-eyebrow">Bibliografía</span><h1>Publicaciones y libros</h1><p>Novela negra, semiótica, narratología y crítica literaria. Explora las obras y consulta sus fichas.</p></header>
+    <section class="section-shell publication-catalog" aria-label="Catálogo de publicaciones">
+      <div class="book-grid">{books.map((book)=><article class="book-card publication-book"><div class="cover"><span>Ahmed Oubali</span><strong>{book.title}</strong><small>{book.year}</small></div><div class="book-info"><span class="publication-type">{book.category} · {book.year}</span><h2>{book.title}</h2><p>{book.description}</p><a class="more" href={import.meta.env.BASE_URL+'books/'+book.slug+'/'}>Abrir ficha <Icon3D name="arrow" /></a></div></article>)}</div>
+    </section>
+  </main>
+</BaseLayout>

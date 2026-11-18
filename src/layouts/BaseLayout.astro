@@ -3,6 +3,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 const { title = 'Ahmed Oubali | Escritor, profesor e hispanista', description = 'Sitio oficial de Ahmed Oubali: literatura, investigación semiótica, docencia y publicaciones.' } = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
+const root = import.meta.env.BASE_URL;
 ---
 <!doctype html>
 <html lang="es">
@@ -10,20 +12,80 @@ const { title = 'Ahmed Oubali | Escritor, profesor e hispanista', description = 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7f5ef" />
+    <meta name="theme-color" content="#22252d" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Ahmed Oubali" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {canonical && <link rel="canonical" href={canonical} />}
     <title>{title}</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✒️</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href={root + 'favicon.svg'} />
+    <link rel="sitemap" type="application/xml" href={root + 'sitemap.xml'} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body class="antialiased">
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <Header />
     <slot />
     <Footer />
+    <script>
+      const modal = document.querySelector('#book-modal');
+      let previousFocus: HTMLElement | null = null;
+      const closeBookModal = () => {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        previousFocus?.focus();
+      };
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const filterButton = target.closest<HTMLButtonElement>('[data-work-filter]');
+        if (filterButton) {
+          const category = filterButton.dataset.workFilter ?? 'all';
+          document.querySelectorAll<HTMLElement>('.publication-card').forEach((card) => { card.hidden = category !== 'all' && card.dataset.category !== category; });
+          document.querySelectorAll<HTMLButtonElement>('[data-work-filter]').forEach((button) => {
+            const active = button === filterButton; button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active));
+          });
+          return;
+        }
+        const openButton = target.closest<HTMLButtonElement>('[data-book-open]');
+        if (openButton && modal) {
+          previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+          const title = modal.querySelector<HTMLElement>('#modal-title');
+          const description = modal.querySelector<HTMLElement>('#modal-description');
+          const category = modal.querySelector<HTMLElement>('#modal-category');
+          if (title) title.textContent = openButton.dataset.title ?? '';
+          if (description) description.textContent = openButton.dataset.description ?? '';
+          if (category) category.textContent = (openButton.dataset.category ?? '').toUpperCase();
+          modal.classList.remove('hidden'); modal.setAttribute('aria-hidden', 'false');
+          modal.querySelector<HTMLButtonElement>('[data-modal-close]')?.focus(); return;
+        }
+        if (target.closest('[data-modal-close]') || target === modal) { closeBookModal(); return; }
+        if (target.closest('[data-summary-open]')) { document.querySelector('#ai-response-box')?.classList.remove('hidden'); return; }
+        if (target.closest('[data-summary-close]')) document.querySelector('#ai-response-box')?.classList.add('hidden');
+      });
+      document.querySelector<HTMLInputElement>('#pdf-search-input')?.addEventListener('input', (event) => {
+        const query = (event.currentTarget as HTMLInputElement).value.trim().toLocaleLowerCase();
+        let visibleCount = 0;
+        document.querySelectorAll<HTMLElement>('.pdf-item').forEach((item) => {
+          const title = item.querySelector('.pdf-title')?.textContent?.toLocaleLowerCase() ?? '';
+          const visible = title.includes(query); item.hidden = !visible; if (visible) visibleCount += 1;
+        });
+        document.querySelector('#pdf-empty-state')?.classList.toggle('hidden', visibleCount > 0);
+      });
+      document.querySelector<HTMLFormElement>('#contact-form')?.addEventListener('submit', (event) => {
+        event.preventDefault(); document.querySelector('#contact-notice')?.classList.remove('hidden');
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') { closeBookModal(); document.querySelector('#ai-response-box')?.classList.add('hidden'); }
+      });
+    </script>
   </body>
 </html>
