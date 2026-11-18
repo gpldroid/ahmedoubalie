@@ -40,7 +40,7 @@ import BookModal from '../components/BookModal.astro';
     const filterButton = target.closest<HTMLButtonElement>('[data-work-filter]');
     if (filterButton) {
       const category = filterButton.dataset.workFilter ?? 'all';
-      document.querySelectorAll<HTMLElement>('.work-card').forEach((card) => {
+      document.querySelectorAll<HTMLElement>('.publication-card').forEach((card) => {
         card.hidden = category !== 'all' && card.dataset.category !== category;
       });
       document.querySelectorAll<HTMLButtonElement>('[data-work-filter]').forEach((button) => {
