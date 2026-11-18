@@ -492,3 +492,25 @@ p,li{overflow-wrap:anywhere}
  .editorial-extra-grid article,.method-grid article,.resource-guide-grid article,.theme-grid article,.footer-nav a{transition:none}
  .editorial-extra-grid article:hover,.method-grid article:hover,.resource-guide-grid article:hover,.theme-grid article:hover{transform:none}
 }
+
+
+/* Desktop navigation: prevent links and social icons from colliding */
+.nav-inner { gap:clamp(.75rem,1.6vw,1.5rem); }
+.nav-links {
+  flex:1 1 auto;
+  min-width:0;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  column-gap:clamp(.45rem,.8vw,.85rem);
+  row-gap:.3rem;
+  font-size:clamp(.68rem,.65vw,.78rem);
+}
+.nav-links > a { white-space:nowrap; }
+.nav-links > .social-links { flex:0 0 auto; }
+@media(max-width:1200px) {
+  .nav-links { display:none; }
+  .menu-toggle { display:grid; }
+}
+@media(min-width:1201px) {
+  .mobile-menu { display:none !important; }
+}
