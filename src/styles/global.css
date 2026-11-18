@@ -514,3 +514,16 @@ p,li{overflow-wrap:anywhere}
 @media(min-width:1201px) {
   .mobile-menu { display:none !important; }
 }
+
+/* WCAG AA contrast improvements */
+:root {
+  --muted: #68645c;
+}
+.portrait-topline,
+.portrait-index,
+.portrait-caption p {
+  color: #665f53;
+}
+.site-footer small {
+  color: #b5afa3;
+}

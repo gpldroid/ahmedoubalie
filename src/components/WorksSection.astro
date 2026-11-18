@@ -1,6 +1,6 @@
 ---
 import Icon3D from './Icon3D.astro';
-const root = import.meta.env.BASE_URL;
+const root = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
 <section id="works" class="site-section works-section">
   <div class="section-shell">
