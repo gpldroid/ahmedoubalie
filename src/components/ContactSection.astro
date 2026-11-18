@@ -1,70 +1,27 @@
 <section id="contact" class="py-20 bg-stone-50 border-t border-stone-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                
-                <div class="lg:col-span-5 space-y-6">
-                    <span class="text-xs font-bold text-brand-crimson uppercase tracking-widest block">Comunicación Directa</span>
-                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Contacto & Consultas Académicas</h2>
-                    <p class="text-stone-600 text-sm leading-relaxed">
-                        Para invitaciones a conferencias, consultas sobre enseñanza de idiomas, publicaciones filológicas o adquisición de ejemplares.
-                    </p>
-
-                    <div class="space-y-4 pt-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-stone-200 text-stone-800 flex items-center justify-center text-lg shrink-0">
-                                <i class="fa-solid fa-globe"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs font-bold text-stone-500 uppercase">Blog Oficial</span>
-                                <a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-crimson hover:underline">ahmedoubali.blogspot.com</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-stone-200 text-stone-800 flex items-center justify-center text-lg shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs font-bold text-stone-500 uppercase">Ubicación</span>
-                                <span class="text-sm font-semibold text-stone-800">Marruecos (Tetuán / Tánger / España)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-stone-200 shadow-lg">
-                    <form onsubmit="handleContactSubmit(event)" class="space-y-5">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div>
-                                <label for="contact-name" class="block text-xs font-bold text-stone-700 uppercase mb-2">Nombre Completo</label>
-                                <input id="contact-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre..." class="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold">
-                            </div>
-                            <div>
-                                <label for="contact-email" class="block text-xs font-bold text-stone-700 uppercase mb-2">Correo Electrónico</label>
-                                <input id="contact-email" name="email" type="email" required autocomplete="email" placeholder="ejemplo@correo.com" class="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="contact-subject" class="block text-xs font-bold text-stone-700 uppercase mb-2">Asunto de Interés</label>
-                            <select id="contact-subject" name="subject" class="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold bg-white">
-                                <option>Enseñanza de Idiomas (ES/FR/EN/DE/AR)</option>
-                                <option>Obras Literarias & Novela Negra</option>
-                                <option>Estudios Semióticos & PDF</option>
-                                <option>Prensa & Conferencias</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="contact-message" class="block text-xs font-bold text-stone-700 uppercase mb-2">Mensaje</label>
-                            <textarea id="contact-message" name="message" rows="4" required placeholder="Escribe tu mensaje o consulta..." class="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-900 text-brand-gold font-bold hover:bg-stone-800 transition shadow-md">
-                            Mostrar instrucciones de contacto <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                        </button>
-                        <p id="contact-notice" class="hidden text-center text-xs text-amber-800 bg-amber-50 p-3 rounded-xl border border-amber-200 mt-2" role="status">Este sitio todavía no tiene configurado un servicio para recibir formularios. No se ha enviado ningún mensaje. Utiliza el enlace al blog oficial para contactar.</p>
-                    </form>
-                </div>
-
-            </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-5 space-y-6">
+        <span class="text-xs font-bold text-brand-crimson uppercase tracking-widest block">Comunicación directa</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Contacto &amp; Consultas Académicas</h2>
+        <p class="text-stone-600 text-sm leading-relaxed">Para invitaciones a conferencias, consultas sobre enseñanza de idiomas, publicaciones filológicas o adquisición de ejemplares.</p>
+        <div class="space-y-4 pt-4">
+          <div class="flex items-start gap-4"><div class="contact-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div><div><span class="contact-label">Blog oficial</span><a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-crimson hover:underline">ahmedoubali.blogspot.com</a></div></div>
+          <div class="flex items-start gap-4"><div class="contact-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div><div><span class="contact-label">Ubicación</span><span class="text-sm font-semibold text-stone-800">Marruecos (Tetuán / Tánger / España)</span></div></div>
         </div>
-    </section>
+      </div>
+      <div class="lg:col-span-7 contact-panel">
+        <form id="contact-form" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div><label for="contact-name" class="contact-label">Nombre completo</label><input id="contact-name" name="name" type="text" required autocomplete="name" placeholder="Tu nombre..." class="w-full px-4 py-3 rounded-xl border text-sm"></div>
+            <div><label for="contact-email" class="contact-label">Correo electrónico</label><input id="contact-email" name="email" type="email" required autocomplete="email" placeholder="ejemplo@correo.com" class="w-full px-4 py-3 rounded-xl border text-sm"></div>
+          </div>
+          <div><label for="contact-subject" class="contact-label">Asunto de interés</label><select id="contact-subject" name="subject" class="w-full px-4 py-3 rounded-xl border text-sm"><option>Enseñanza de Idiomas (ES/FR/EN/DE/AR)</option><option>Obras Literarias &amp; Novela Negra</option><option>Estudios Semióticos &amp; PDF</option><option>Prensa &amp; Conferencias</option></select></div>
+          <div><label for="contact-message" class="contact-label">Mensaje</label><textarea id="contact-message" name="message" rows="4" required placeholder="Escribe tu mensaje o consulta..." class="w-full px-4 py-3 rounded-xl border text-sm"></textarea></div>
+          <button type="submit" class="contact-submit">Mostrar instrucciones de contacto →</button>
+          <p id="contact-notice" class="hidden contact-notice" role="status">Este sitio todavía no tiene configurado un servicio para recibir formularios. No se ha enviado ningún mensaje. Utiliza el enlace al blog oficial para contactar.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
