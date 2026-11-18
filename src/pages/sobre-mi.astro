@@ -2,6 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AboutSection from '../components/AboutSection.astro';
 ---
-<BaseLayout title="Sobre Ahmed Oubali | Biografía y trayectoria" description="Conoce la trayectoria docente, literaria y académica de Ahmed Oubali.">
-  <main id="main-content"><header class="page-hero"><span class="section-eyebrow">Trayectoria y especialidades</span><h1>Sobre Ahmed Oubali</h1><p>Una vida dedicada a las palabras, la enseñanza y la investigación literaria.</p></header><AboutSection /></main>
+<BaseLayout title="Sobre Ahmed Oubali | Biografía y trayectoria" description="Conoce las líneas docentes, narrativas y académicas de Ahmed Oubali.">
+  <main id="main-content" class="editorial-page">
+    <header class="page-hero"><span class="section-eyebrow">Trayectoria y especialidades</span><h1>Sobre Ahmed Oubali</h1><p>Una mirada a la relación entre la enseñanza, la creación narrativa y la investigación literaria.</p></header>
+    <AboutSection />
+    <section class="editorial-extra section-shell" aria-labelledby="about-approach">
+      <header><span class="section-eyebrow">Una práctica transversal</span><h2 id="about-approach">Tres líneas que dialogan</h2><p>La actividad presentada en este sitio se organiza alrededor de tres ámbitos complementarios:</p></header>
+      <div class="editorial-extra-grid">
+        <article><span>01</span><h3>Enseñanza de lenguas</h3><p>El trabajo lingüístico se relaciona con la lectura, la expresión escrita y el acercamiento a distintas tradiciones culturales.</p></article>
+        <article><span>02</span><h3>Creación narrativa</h3><p>La narrativa de intriga y el género policial constituyen una de las vertientes de su bibliografía.</p></article>
+        <article><span>03</span><h3>Investigación literaria</h3><p>La semiótica y la crítica textual permiten estudiar cómo se construyen sentidos, identidades y universos culturales.</p></article>
+      </div>
+      <p class="editorial-note">Esta página presenta una síntesis temática. Para consultar títulos concretos, visita la sección de <a href={import.meta.env.BASE_URL + 'publicaciones/'}>publicaciones</a>.</p>
+    </section>
+  </main>
 </BaseLayout>
+<style>
+.editorial-extra{padding-block:3.5rem 5rem}.editorial-extra>header{max-width:48rem;margin-bottom:2rem}.editorial-extra h2{font:600 clamp(2rem,4vw,3rem)/1.15 'Playfair Display',Georgia,serif;margin:.5rem 0}.editorial-extra-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.editorial-extra-grid article{padding:1.5rem;background:var(--surface);border:1px solid var(--line);border-radius:1rem}.editorial-extra-grid article>span{color:var(--gold-deep);font-size:.7rem;font-weight:800;letter-spacing:.12em}.editorial-extra-grid h3{font:600 1.25rem 'Playfair Display',Georgia,serif}.editorial-extra-grid p,.editorial-note{color:var(--muted);font-size:.9rem;line-height:1.8}.editorial-note{margin-top:1.5rem}.editorial-note a{color:var(--gold-deep);font-weight:700}
+@media(max-width:700px){.editorial-extra-grid{grid-template-columns:1fr}}
+</style>
