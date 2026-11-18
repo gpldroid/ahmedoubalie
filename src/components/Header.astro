@@ -32,15 +32,34 @@ const path = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^
   </div>
 </nav>
 <script>
-  const toggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('#mobile-menu');
-  const closeMenu = () => { menu?.setAttribute('hidden', ''); toggle?.setAttribute('aria-expanded', 'false'); toggle?.setAttribute('aria-label', 'Abrir menú'); };
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.querySelector<HTMLElement>('#mobile-menu');
+  const desktopNavigation = window.matchMedia('(min-width: 1401px)');
+  const closeMenu = () => {
+    if (!menu || !toggle) return;
+    menu.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+  };
   toggle?.addEventListener('click', () => {
-    const shouldOpen = menu?.hasAttribute('hidden') ?? false;
-    if (shouldOpen) { menu?.removeAttribute('hidden'); toggle?.setAttribute('aria-expanded', 'true'); toggle?.setAttribute('aria-label', 'Cerrar menú'); }
-    else closeMenu();
+    if (!menu) return;
+    const open = menu.hidden;
+    menu.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
   });
   menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeMenu(); toggle?.focus(); } });
-  window.addEventListener('resize', () => { if (window.innerWidth > 1200) closeMenu(); });
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Node)) return;
+    if (!menu?.contains(event.target) && !toggle?.contains(event.target)) closeMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu && !menu.hidden) {
+      closeMenu();
+      toggle?.focus();
+    }
+  });
+  const syncNavigation = () => { if (desktopNavigation.matches) closeMenu(); };
+  desktopNavigation.addEventListener('change', syncNavigation);
+  syncNavigation();
 </script>
