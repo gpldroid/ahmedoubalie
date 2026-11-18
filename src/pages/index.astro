@@ -1,492 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import LanguagesSection from '../components/LanguagesSection.astro';
+import WorksSection from '../components/WorksSection.astro';
+import PdfLibrarySection from '../components/PdfLibrarySection.astro';
+import LiteraryAssistantSection from '../components/LiteraryAssistantSection.astro';
+import ContactSection from '../components/ContactSection.astro';
+import BookModal from '../components/BookModal.astro';
 ---
 <BaseLayout><main>
 
     
 
-    <section class="relative bg-pattern text-white py-20 lg:py-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold uppercase tracking-wider">
-                        <i class="fa-solid fa-feather-pointed"></i> Escritor & Catedrático Hispanista
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-stone-100 leading-tight">
-                        Pionero del <span class="text-brand-gold italic">Relato Noir</span> y Maestro de <span class="underline decoration-brand-gold/50">5 Idiomas</span>.
-                    </h1>
-                    <p class="text-lg text-stone-300 leading-relaxed max-w-2xl font-light">
-                        Bienvenido al espacio oficial del Profesor Ahmed Oubali. Creador de novelas policiacas, ensayos de semiótica y narrativa histórica, docente de 5 lenguas globales y divulgador académico con acceso libre en PDF.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#works" class="px-7 py-3.5 rounded-full bg-brand-gold text-brand-900 font-semibold hover:bg-yellow-400 transition shadow-lg flex items-center gap-2">
-                            <i class="fa-solid fa-book-open"></i> Explorar Obras
-                        </a>
-                        <a href="#pdf-library" class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium border border-white/20 backdrop-blur-sm transition flex items-center gap-2">
-                            <i class="fa-solid fa-file-pdf text-red-400"></i> Libros en PDF
-                        </a>
-                    </div>
+        <HeroSection />
 
-                    <!-- Quick Stats -->
-                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-white/10 text-center sm:text-left">
-                        <div>
-                            <span class="block text-2xl lg:text-3xl font-serif font-bold text-brand-gold">5</span>
-                            <span class="text-xs text-stone-400 uppercase tracking-wider">Idiomas Impartidos</span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl lg:text-3xl font-serif font-bold text-brand-gold">15+</span>
-                            <span class="text-xs text-stone-400 uppercase tracking-wider">Novelas & Ensayos</span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl lg:text-3xl font-serif font-bold text-brand-gold">100%</span>
-                            <span class="text-xs text-stone-400 uppercase tracking-wider">Acceso Gratuito PDF</span>
-                        </div>
-                    </div>
-                </div>
+        <AboutSection />
 
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <!-- Decorative Frame -->
-                        <div class="absolute -inset-4 rounded-2xl bg-gradient-to-tr from-brand-gold/40 to-brand-crimson/40 blur-xl opacity-70"></div>
-                        <div class="relative bg-stone-900 border border-stone-700/80 rounded-2xl p-6 shadow-2xl space-y-6">
-                            <div class="aspect-[4/5] rounded-xl bg-stone-800 overflow-hidden relative border border-stone-700">
-                                <img src="https://placehold.co/600x750/3d1e11/f5e6d3?text=Prof.+Ahmed+Oubali" alt="Profesor Ahmed Oubali" class="w-full h-full object-cover">
-                                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 text-center">
-                                    <p class="font-serif text-lg text-stone-100 font-semibold">Ahmed Oubali</p>
-                                    <p class="text-xs text-brand-gold">Catedrático & Precursor del Relato Noir</p>
-                                </div>
-                            </div>
-                            <div class="bg-stone-800/80 p-4 rounded-xl border border-stone-700 text-xs text-stone-300 space-y-2">
-                                <p class="italic">"La literatura es el puente entre culturas, y el lenguaje es la llave para cruzarlo."</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <LanguagesSection />
 
-            </div>
-        </div>
-    </section>
+        <WorksSection />
 
-    <section id="about" class="py-20 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Sobre el Autor y Profesor</h2>
-                <div class="w-20 h-1 bg-brand-crimson mx-auto rounded-full mb-6"></div>
-                <p class="text-stone-600 leading-relaxed text-lg">
-                    Catedrático, crítico semiótico y novelista hispanista marroquí. Pionero del relato policiaco y noir en el Magreb, dedicado al estudio filológico, la docencia de 5 idiomas y la producción ensayística sobre literatura comparada.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl mb-6">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Docencia Políglota</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">
-                        Trayectoria de excelencia en la enseñanza superior y formación lingüística práctica en español, francés, inglés, alemán y árabe.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-xl bg-red-100 text-red-800 flex items-center justify-center text-xl mb-6">
-                        <i class="fa-solid fa-user-ninja"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Novela Negra y Policiaca</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">
-                        Autor de aclamadas novelas como <em>Chivos Expiatorios</em>, <em>Narcolepsia</em> y <em>Perfidia de Áspid</em>, referentes de la narrativa de misterio.
-                    </p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center text-xl mb-6">
-                        <i class="fa-solid fa-book-bookmark"></i>
-                    </div>
-                    <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">Semiótica y Difusión PDF</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed">
-                        Comprometido con la difusión libre del conocimiento ofreciendo ensayos filológicos y semióticos para descarga directa en PDF.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="languages" class="py-20 bg-white border-y border-stone-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
-                <div>
-                    <span class="text-xs font-bold text-brand-crimson uppercase tracking-widest block mb-2">Área Académica</span>
-                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Enseñanza & Cursos de 5 Idiomas</h2>
-                </div>
-                <p class="text-stone-600 max-w-md mt-4 md:mt-0 text-sm">
-                    Metodología pedagógica especializada orientada a estudiantes, investigadores y profesionales en 5 lenguas clave.
-                </p>
-            </div>
-
-            <!-- Grid of 5 Languages -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                
-                <!-- Spanish -->
-                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 hover:border-brand-gold transition group">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-3xl">🇪🇸</span>
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-amber-100 text-amber-800 rounded-full">Avanzado / Literario</span>
-                    </div>
-                    <h3 class="font-serif text-lg font-bold text-stone-900 group-hover:text-brand-crimson transition">Español</h3>
-                    <p class="text-xs text-stone-600 mt-2 leading-relaxed">Análisis semiótico, redacción académica, hispanismo y análisis del texto literario.</p>
-                </div>
-
-                <!-- French -->
-                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 hover:border-brand-gold transition group">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-3xl">🇫🇷</span>
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-blue-100 text-blue-800 rounded-full">Universitario</span>
-                    </div>
-                    <h3 class="font-serif text-lg font-bold text-stone-900 group-hover:text-brand-crimson transition">Francés (Français)</h3>
-                    <p class="text-xs text-stone-600 mt-2 leading-relaxed">Expresión escrita, literatura francófona, traducción y formación lingüística.</p>
-                </div>
-
-                <!-- English -->
-                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 hover:border-brand-gold transition group">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-3xl">🇬🇧</span>
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-purple-100 text-purple-800 rounded-full">Global / Académico</span>
-                    </div>
-                    <h3 class="font-serif text-lg font-bold text-stone-900 group-hover:text-brand-crimson transition">Inglés (English)</h3>
-                    <p class="text-xs text-stone-600 mt-2 leading-relaxed">Comprensión de textos científicos, comunicación fluida y análisis textual.</p>
-                </div>
-
-                <!-- German -->
-                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 hover:border-brand-gold transition group">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-3xl">🇩🇪</span>
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full">Estructurado</span>
-                    </div>
-                    <h3 class="font-serif text-lg font-bold text-stone-900 group-hover:text-brand-crimson transition">Alemán (Deutsch)</h3>
-                    <p class="text-xs text-stone-600 mt-2 leading-relaxed">Bases gramaticales sólidas, lectura técnica y diálogo expresivo.</p>
-                </div>
-
-                <!-- Arabic -->
-                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 hover:border-brand-gold transition group">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-3xl">🇲🇦</span>
-                        <span class="text-xs font-semibold px-2.5 py-1 bg-rose-100 text-rose-800 rounded-full">Clásico / Dialectal</span>
-                    </div>
-                    <h3 class="font-serif text-lg font-bold text-stone-900 group-hover:text-brand-crimson transition">Árabe (العربية)</h3>
-                    <p class="text-xs text-stone-600 mt-2 leading-relaxed">Árabe estándar culto, retórica, lingüística y patrimonio literario magrebí.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="works" class="py-20 bg-stone-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <span class="text-xs font-bold text-brand-gold uppercase tracking-widest block mb-2">Publicaciones Bibliográficas</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-100">Novelas & Ensayos Destacados</h2>
-                <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full my-4"></div>
-                <p class="text-stone-400 text-sm">
-                    Explora la bibliografía completa de Ahmed Oubali: Novelas de suspenso, crítica semiótica y estudios filológicos.
-                </p>
-
-                <!-- Filter Category Buttons -->
-                <div class="flex flex-wrap justify-center gap-2 mt-8" id="work-filters">
-                    <button onclick="filterWorks('all')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-gold text-brand-900">Todas las Obras</button>
-                    <button onclick="filterWorks('misterio')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-stone-800 text-stone-300 hover:bg-stone-700">Novela Negra & Misterio</button>
-                    <button onclick="filterWorks('ensayo')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-stone-800 text-stone-300 hover:bg-stone-700">Ensayos & Semiótica</button>
-                </div>
-            </div>
-
-            <!-- Grid of Works -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="works-grid">
-                
-                <!-- Book Card 1 -->
-                <div class="work-card bg-stone-800/80 rounded-2xl border border-stone-700 overflow-hidden hover:border-brand-gold/60 transition group flex flex-col" data-category="misterio">
-                    <div class="aspect-[16/10] bg-stone-900 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-stone-900 to-stone-950">
-                        <i class="fa-solid fa-skull text-6xl text-brand-gold/30 group-hover:scale-110 transition duration-300"></i>
-                        <span class="absolute top-4 right-4 bg-red-950/80 text-red-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-red-800/50">Novela Noir</span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-xl font-bold text-stone-100 group-hover:text-brand-gold transition">Chivos Expiatorios</h3>
-                            <p class="text-xs text-stone-400 mt-2 leading-relaxed">Emblemática novela policiaca ambientada en un entorno fascinante de intriga psicológica y giros narrativos inesperados.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-700 flex justify-between items-center">
-                            <span class="text-xs text-stone-400 font-mono">Novela • 226 págs.</span>
-                            <button onclick="openBookModal('Chivos Expiatorios', 'Novela referente del género negro hispanomagrebí. Con una sólida construcción narrativa, se adentra en las profundidades de la psicología humana y el misterio.', 'misterio')" class="text-xs font-bold text-brand-gold hover:underline flex items-center gap-1">
-                                Ver Detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Book Card 2 -->
-                <div class="work-card bg-stone-800/80 rounded-2xl border border-stone-700 overflow-hidden hover:border-brand-gold/60 transition group flex flex-col" data-category="misterio">
-                    <div class="aspect-[16/10] bg-stone-900 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-stone-900 to-stone-950">
-                        <i class="fa-solid fa-brain text-6xl text-brand-gold/30 group-hover:scale-110 transition duration-300"></i>
-                        <span class="absolute top-4 right-4 bg-amber-950/80 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-amber-800/50">Suspenso</span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-xl font-bold text-stone-100 group-hover:text-brand-gold transition">Narcolepsia & Tétrica Mente</h3>
-                            <p class="text-xs text-stone-400 mt-2 leading-relaxed">Dos obras maestras del suspenso psicológico e investigación de la mente asesina y los laberintos de la percepción.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-700 flex justify-between items-center">
-                            <span class="text-xs text-stone-400 font-mono">Novela • 212 págs.</span>
-                            <button onclick="openBookModal('Narcolepsia / Tétrica Mente', 'Obras cargadas de tensión narrativa y análisis de personajes al límite. Explora los secretos del engaño y las secuelas psicológicas en historias envolventes.', 'misterio')" class="text-xs font-bold text-brand-gold hover:underline flex items-center gap-1">
-                                Ver Detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Book Card 3 -->
-                <div class="work-card bg-stone-800/80 rounded-2xl border border-stone-700 overflow-hidden hover:border-brand-gold/60 transition group flex flex-col" data-category="ensayo">
-                    <div class="aspect-[16/10] bg-stone-900 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-stone-900 to-stone-950">
-                        <i class="fa-solid fa-book-journal-whills text-6xl text-brand-gold/30 group-hover:scale-110 transition duration-300"></i>
-                        <span class="absolute top-4 right-4 bg-emerald-950/80 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-800/50">Semiótica</span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-xl font-bold text-stone-100 group-hover:text-brand-gold transition">La Danza de los Signos</h3>
-                            <p class="text-xs text-stone-400 mt-2 leading-relaxed">Estudio semiótico indispensable sobre la literatura marroquí escrita en lengua española y sus códigos culturales.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-700 flex justify-between items-center">
-                            <span class="text-xs text-stone-400 font-mono">Ensayo Académico</span>
-                            <button onclick="openBookModal('La Danza de los Signos en la literatura marroquí en lengua española', 'Obra teórica fundamental que analiza las estructuras de representación, símbolos y convergencia hispanomagrebí.', 'ensayo')" class="text-xs font-bold text-brand-gold hover:underline flex items-center gap-1">
-                                Ver Detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="pdf-library" class="py-20 bg-stone-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl p-8 lg:p-12 border border-stone-200 shadow-xl">
-                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-10 pb-8 border-b border-stone-200">
-                    <div>
-                        <span class="inline-flex items-center gap-2 text-xs font-bold text-red-600 bg-red-50 border border-red-200 px-3 py-1 rounded-full uppercase tracking-wider">
-                            <i class="fa-solid fa-file-pdf"></i> Biblioteca de Libre Acceso
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mt-3">Descargas de Libros & Documentos PDF</h2>
-                        <p class="text-stone-600 text-sm mt-1">Acceso directo a ensayos, análisis semióticos y publicaciones completas del autor.</p>
-                    </div>
-                    <!-- Search Input for PDFs -->
-                    <div class="w-full lg:w-80 relative">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
-                        <input type="text" id="pdf-search-input" onkeyup="filterPDFs()" placeholder="Buscar publicaciones PDF..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold">
-                    </div>
-                </div>
-
-                <!-- PDF Items List -->
-                <div class="space-y-4" id="pdf-list-container">
-                    
-                    <!-- Item 1 -->
-                    <div class="pdf-item flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 hover:bg-red-50/20 transition gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
-                                <i class="fa-solid fa-file-pdf"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-serif font-bold text-stone-900 text-base pdf-title">Tánger en la Novela Policial & Narratología Noir</h4>
-                                <p class="text-xs text-stone-500 mt-0.5">Categoría: Ensayo Policiaco • Idioma: Español • Formato: PDF/eBook</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <a href="https://ahmedoubali.blogspot.com" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold text-red-700 bg-red-100 hover:bg-red-200 transition flex items-center gap-2">
-                                <i class="fa-solid fa-download"></i> Descargar / Ver Blog
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Item 2 -->
-                    <div class="pdf-item flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 hover:bg-red-50/20 transition gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
-                                <i class="fa-solid fa-file-pdf"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-serif font-bold text-stone-900 text-base pdf-title">Iniciación al Análisis Semiótico de Textos</h4>
-                                <p class="text-xs text-stone-500 mt-0.5">Categoría: Filología & Docencia • Idioma: Español • Guía Teórica</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <a href="https://ahmedoubali.blogspot.com" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold text-red-700 bg-red-100 hover:bg-red-200 transition flex items-center gap-2">
-                                <i class="fa-solid fa-download"></i> Descargar / Ver Blog
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="pdf-item flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 hover:bg-red-50/20 transition gap-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
-                                <i class="fa-solid fa-file-pdf"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-serif font-bold text-stone-900 text-base pdf-title">El Poema como Espacio Patémico: Estudio de Pasiones</h4>
-                                <p class="text-xs text-stone-500 mt-0.5">Categoría: Crítica Literaria • Idioma: Español • Estudio Académico</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <a href="https://ahmedoubali.blogspot.com" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold text-red-700 bg-red-100 hover:bg-red-200 transition flex items-center gap-2">
-                                <i class="fa-solid fa-download"></i> Descargar / Ver Blog
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+        <PdfLibrarySection />
 
 
 
-    <section class="py-16 bg-gradient-to-r from-stone-900 via-stone-800 to-brand-900 text-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <div class="inline-flex items-center gap-2 bg-brand-gold/20 border border-brand-gold/40 text-brand-gold text-xs px-3 py-1 rounded-full font-semibold">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> Asistente Literario con Gemini IA
-            </div>
-            <h2 class="text-3xl font-serif font-bold">Generar Análisis del Perfil Intelectual</h2>
-            <p class="text-stone-300 text-sm max-w-2xl mx-auto">
-                Haz clic para obtener una síntesis en tiempo real del estilo narrativo noir, la investigación semiótica y la pedagogía del Profesor Ahmed Oubali.
-            </p>
+        <LiteraryAssistantSection />
 
-            <div class="pt-2">
-                <button onclick="generateAILiterarySummary()" id="ai-btn" class="px-8 py-3.5 rounded-full bg-brand-gold text-brand-900 font-bold hover:bg-yellow-400 transition shadow-lg inline-flex items-center gap-3">
-                    <i class="fa-solid fa-robot"></i> Generar Síntesis Literaria
-                </button>
-            </div>
-
-            <!-- AI Result Box -->
-            <div id="ai-response-box" class="hidden text-left bg-stone-900/90 border border-brand-gold/30 rounded-2xl p-6 mt-8 max-w-3xl mx-auto shadow-2xl relative">
-                <div class="flex items-center justify-between border-b border-stone-800 pb-3 mb-4">
-                    <span class="text-xs font-bold text-brand-gold uppercase tracking-widest flex items-center gap-2">
-                        <i class="fa-solid fa-brain"></i> Síntesis Intelectual Generada
-                    </span>
-                    <button onclick="document.getElementById('ai-response-box').classList.add('hidden')" class="text-stone-400 hover:text-white text-sm">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-                <div id="ai-text-content" class="text-sm text-stone-200 leading-relaxed font-light space-y-3">
-                    <!-- Dynamic content filled here -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 bg-stone-50 border-t border-stone-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                
-                <div class="lg:col-span-5 space-y-6">
-                    <span class="text-xs font-bold text-brand-crimson uppercase tracking-widest block">Comunicación Directa</span>
-                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Contacto & Consultas Académicas</h2>
-                    <p class="text-stone-600 text-sm leading-relaxed">
-                        Para invitaciones a conferencias, consultas sobre enseñanza de idiomas, publicaciones filológicas o adquisición de ejemplares.
-                    </p>
-
-                    <div class="space-y-4 pt-4">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-stone-200 text-stone-800 flex items-center justify-center text-lg shrink-0">
-                                <i class="fa-solid fa-globe"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs font-bold text-stone-500 uppercase">Blog Oficial</span>
-                                <a href="https://ahmedoubali.blogspot.com" target="_blank" class="text-sm font-semibold text-brand-crimson hover:underline">ahmedoubali.blogspot.com</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-stone-200 text-stone-800 flex items-center justify-center text-lg shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <span class="block text-xs font-bold text-stone-500 uppercase">Ubicación</span>
-                                <span class="text-sm font-semibold text-stone-800">Marruecos (Tetuán / Tánger / España)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-stone-200 shadow-lg">
-                    <form onsubmit="handleContactSubmit(event)" class="space-y-5">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-xs font-bold text-stone-700 uppercase mb-2">Nombre Completo</label>
-                                <input type="text" required placeholder="Tu nombre..." class="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-stone-700 uppercase mb-2">Correo Electrónico</label>
-                                <input type="email" required placeholder="ejemplo@correo.com" class="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-stone-700 uppercase mb-2">Asunto de Interés</label>
-                            <select class="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold bg-white">
-                                <option>Enseñanza de Idiomas (ES/FR/EN/DE/AR)</option>
-                                <option>Obras Literarias & Novela Negra</option>
-                                <option>Estudios Semiótics & PDF</option>
-                                <option>Prensa & Conferencias</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-stone-700 uppercase mb-2">Mensaje</label>
-                            <textarea rows="4" required placeholder="Escribe tu mensaje o consulta..." class="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-900 text-brand-gold font-bold hover:bg-stone-800 transition shadow-md">
-                            Enviar Mensaje <i class="fa-solid fa-paper-plane ml-2 text-xs"></i>
-                        </button>
-                        <div id="contact-success" class="hidden text-center text-xs text-emerald-600 font-bold bg-emerald-50 p-3 rounded-xl border border-emerald-200 mt-2">
-                            ¡Gracias! Su mensaje ha sido enviado correctamente.
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
+        <ContactSection />
 
     <!-- Footer -->
     
 
-    <!-- Book Details Modal -->
-    <div id="book-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-xl w-full p-8 relative shadow-2xl space-y-6">
-            <button onclick="closeBookModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-800 text-xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <span id="modal-category" class="inline-block px-3 py-1 bg-brand-gold/20 text-brand-800 text-xs font-bold rounded-full uppercase">Categoría</span>
-            <h3 id="modal-title" class="text-2xl font-serif font-bold text-stone-900">Título de la Obra</h3>
-            <p id="modal-description" class="text-stone-600 text-sm leading-relaxed">Descripción detallada de la obra...</p>
-            <div class="pt-4 border-t border-stone-200 flex justify-end gap-3">
-                <button onclick="closeBookModal()" class="px-5 py-2.5 rounded-xl border border-stone-300 text-xs font-semibold text-stone-700">Cerrar</button>
-                <a href="#pdf-library" onclick="closeBookModal()" class="px-5 py-2.5 rounded-xl bg-brand-crimson text-white text-xs font-semibold hover:bg-red-900 transition">Ver Biblioteca PDF</a>
-            </div>
-        </div>
-    </div>
+    <BookModal />
 
-    
-
-<script is:inline>
-// 1. Mobile Menu Toggle Event Listener
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // 2. Book Modal Logic
+    <script is:inline>
+// Book modal controls
         function openBookModal(title, description, category) {
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-description').textContent = description;
@@ -515,7 +64,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             const query = document.getElementById('pdf-search-input').value.toLowerCase();
             const pdfItems = document.querySelectorAll('.pdf-item');
             pdfItems.forEach(item => {
-                const title = item.querySelector('.pdf-title').textContent.toLowerCase();
+                const title = item.querySelector('.pdf-title')?.textContent?.toLowerCase() ?? '';
                 if (title.includes(query)) {
                     item.style.display = 'flex';
                 } else {
@@ -524,59 +73,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             });
         }
 
-        // 5. Contact Form Handler
+        // Static site: no mail endpoint is configured, so never report a false success.
         function handleContactSubmit(e) {
             e.preventDefault();
-            const successBox = document.getElementById('contact-success');
-            if (successBox) {
-                successBox.classList.remove('hidden');
-                e.target.reset();
-                setTimeout(() => {
-                    successBox.classList.add('hidden');
-                }, 4000);
-            }
+            const notice = document.getElementById('contact-notice');
+            if (notice) notice.classList.remove('hidden');
         }
 
-        // 6. Gemini AI Integration for Literary Summaries
-        async function generateAILiterarySummary() {
+        // Local editorial summary; no API key or third-party request is required.
+        function generateAILiterarySummary() {
             const box = document.getElementById('ai-response-box');
-            const contentDiv = document.getElementById('ai-text-content');
-            const btn = document.getElementById('ai-btn');
-
+            const content = document.getElementById('ai-text-content');
+            if (!box || !content) return;
+            content.textContent = 'Ahmed Oubali vincula la narrativa noir y policiaca con la investigación semiótica y la crítica literaria. Sus publicaciones exploran el relato de intriga, la construcción de la identidad y los signos culturales en la literatura marroquí en lengua española. Su actividad docente abarca español, francés, inglés, alemán y árabe. Esta síntesis es editorial y estática; no se genera mediante un servicio de inteligencia artificial.';
             box.classList.remove('hidden');
-            contentDiv.innerHTML = '<div class="flex items-center gap-3 text-stone-400 text-xs"><i class="fa-solid fa-spinner fa-spin text-brand-gold text-lg"></i> Analizando el perfil intelectual con Gemini AI...</div>';
-            btn.disabled = true;
-
-            const prompt = "Genera un análisis sintético y elegante en español sobre el perfil intelectual y literario del Profesor y Novelista marroquí Ahmed Oubali. Resalta su faceta como precursor del relato noir policiaco (Chivos Expiatorios, Narcolepsia), su labor en la semiótica (La danza de los signos), la enseñanza de 5 idiomas (español, francés, inglés, alemán, árabe) y sus obras en PDF. Usa un tono académico y distinguido.";
-
-            try {
-                const apiKey = ""; // API key populated dynamically
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: prompt }] }]
-                    })
-                });
-
-                const result = await response.json();
-                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (text) {
-                    const formattedText = text.split('\n\n').map(p => `<p class="leading-relaxed">${p}</p>`).join('');
-                    contentDiv.innerHTML = formattedText;
-                } else {
-                    contentDiv.innerHTML = '<p class="text-stone-400">No se pudo generar la síntesis en este momento. Por favor reintente más tarde.</p>';
-                }
-            } catch (error) {
-                console.error(error);
-                contentDiv.innerHTML = '<p class="text-stone-400">Error al consultar el servicio de Inteligencia Artificial.</p>';
-            } finally {
-                btn.disabled = false;
-            }
         }
-    
-</script>
+
+    </script>
 </main></BaseLayout>
