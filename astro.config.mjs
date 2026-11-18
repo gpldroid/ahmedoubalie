@@ -1,2 +1,9 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({site:'https://gpldroid.github.io',base:'/ahmedoubalie',output:'static'});
+
+const isNetlify = process.env.NETLIFY === 'true';
+
+export default defineConfig({
+  site: isNetlify ? 'https://ahmedoubali.netlify.app' : 'https://gpldroid.github.io',
+  base: isNetlify ? '/' : '/ahmedoubalie',
+  output: 'static',
+});
