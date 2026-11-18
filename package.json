@@ -4,10 +4,14 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "npm run check:data && astro build",
+    "preview": "astro preview",
+    "check:data": "node scripts/validate-books.mjs"
   },
   "dependencies": {
-    "astro": "^5.18.2"
+    "astro": "5.18.2"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }
