@@ -1,0 +1,5 @@
+# Robots rules for the Ahmed Oubali GitHub Pages project site.
+User-agent: *
+Allow: /
+
+Sitemap: https://gpldroid.github.io/ahmedoubalie/sitemap.xml

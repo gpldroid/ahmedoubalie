@@ -1,11 +1,19 @@
 ---
 import SocialIcons from './SocialIcons.astro';
+const root = import.meta.env.BASE_URL;
 ---
-<footer class="site-footer"><div><p class="footer-name">Profesor Ahmed Oubali</p><p class="footer-copy">Escritor, catedrático e hispanista marroquí. Los derechos sobre sus obras y publicaciones están protegidos.</p><SocialIcons/><small>© {new Date().getFullYear()} Plataforma Literaria Ahmed Oubali.</small></div></footer>
-<style>
-.site-footer{background:#24231f;color:#d6d1c7;padding:3.5rem 1.5rem;text-align:center;border-top:1px solid #444137}
-.site-footer>div{max-width:760px;margin:auto;display:grid;justify-items:center;gap:1rem}
-.footer-name{font:1.35rem 'Playfair Display',Georgia,serif;color:#f7f5ef;margin:0}
-.footer-copy{font-size:.8rem;color:#b5afa3;max-width:36rem;margin:0}
-.site-footer small{font-size:.72rem;color:#928b7e;margin-top:.5rem}
-</style>
+<footer class="site-footer">
+  <div class="footer-main">
+    <p class="footer-name">Profesor Ahmed Oubali</p>
+    <p class="footer-copy">Escritor, catedrático e hispanista marroquí. Un espacio dedicado a la literatura, la investigación y el diálogo entre culturas.</p>
+    <SocialIcons />
+    <nav class="legal-links" aria-label="Información legal">
+      <a href={root + 'aviso-legal/'}>Aviso legal</a>
+      <a href={root + 'politica-de-privacidad/'}>Privacidad</a>
+      <a href={root + 'politica-de-cookies/'}>Cookies</a>
+      <a href={root + 'terminos-de-uso/'}>Términos de uso</a>
+      <a href={root + 'sitemap.xml'}>Mapa del sitio</a>
+    </nav>
+    <small>© {new Date().getFullYear()} Plataforma Literaria Ahmed Oubali. Todos los derechos reservados.</small>
+  </div>
+</footer>
