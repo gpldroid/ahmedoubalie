@@ -9,104 +9,99 @@ import LiteraryAssistantSection from '../components/LiteraryAssistantSection.ast
 import ContactSection from '../components/ContactSection.astro';
 import BookModal from '../components/BookModal.astro';
 ---
-<BaseLayout><main>
-
-    
-
-        <HeroSection />
-
-        <AboutSection />
-
-        <LanguagesSection />
-
-        <WorksSection />
-
-        <PdfLibrarySection />
-
-
-
-        <LiteraryAssistantSection />
-
-        <ContactSection />
-
-    <!-- Footer -->
-    
-
+<BaseLayout>
+  <main id="main-content">
+    <HeroSection />
+    <AboutSection />
+    <LanguagesSection />
+    <WorksSection />
+    <PdfLibrarySection />
+    <LiteraryAssistantSection />
+    <ContactSection />
     <BookModal />
+  </main>
+</BaseLayout>
 
-    <script is:inline>
-// Book modal controls
-        let lastFocusedElement = null;
-        function openBookModal(title, description, category) {
-            const modal = document.getElementById('book-modal');
-            if (!modal) return;
-            lastFocusedElement = document.activeElement;
-            document.getElementById('modal-title').textContent = title;
-            document.getElementById('modal-description').textContent = description;
-            document.getElementById('modal-category').textContent = category.toUpperCase();
-            modal.classList.remove('hidden');
-            modal.setAttribute('aria-hidden', 'false');
-            modal.querySelector('button')?.focus();
-        }
+<script>
+  const modal = document.querySelector('#book-modal');
+  let previousFocus: HTMLElement | null = null;
 
-        function closeBookModal() {
-            const modal = document.getElementById('book-modal');
-            if (!modal) return;
-            modal.classList.add('hidden');
-            modal.setAttribute('aria-hidden', 'true');
-            lastFocusedElement?.focus?.();
-        }
+  const closeBookModal = () => {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+    previousFocus?.focus();
+  };
 
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && document.getElementById('book-modal')?.getAttribute('aria-hidden') === 'false') {
-                closeBookModal();
-            }
-        });
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
 
-        // 3. Work Category Filter Logic
-        function filterWorks(category) {
-            const cards = document.querySelectorAll('.work-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+    const filterButton = target.closest<HTMLButtonElement>('[data-work-filter]');
+    if (filterButton) {
+      const category = filterButton.dataset.workFilter ?? 'all';
+      document.querySelectorAll<HTMLElement>('.work-card').forEach((card) => {
+        card.hidden = category !== 'all' && card.dataset.category !== category;
+      });
+      document.querySelectorAll<HTMLButtonElement>('[data-work-filter]').forEach((button) => {
+        const active = button === filterButton;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      return;
+    }
 
-        // 4. PDF Search Logic
-        function filterPDFs() {
-            const query = document.getElementById('pdf-search-input')?.value?.trim().toLowerCase() ?? '';
-            const pdfItems = document.querySelectorAll('.pdf-item');
-            let visibleCount = 0;
-            pdfItems.forEach(item => {
-                const title = item.querySelector('.pdf-title')?.textContent?.toLowerCase() ?? '';
-                if (title.includes(query)) {
-                    item.style.display = 'flex';
-                    visibleCount += 1;
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-            document.getElementById('pdf-empty-state')?.classList.toggle('hidden', visibleCount !== 0);
-        }
+    const openButton = target.closest<HTMLButtonElement>('[data-book-open]');
+    if (openButton && modal) {
+      previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      const title = modal.querySelector<HTMLElement>('#modal-title');
+      const description = modal.querySelector<HTMLElement>('#modal-description');
+      const category = modal.querySelector<HTMLElement>('#modal-category');
+      if (title) title.textContent = openButton.dataset.title ?? '';
+      if (description) description.textContent = openButton.dataset.description ?? '';
+      if (category) category.textContent = (openButton.dataset.category ?? '').toUpperCase();
+      modal.classList.remove('hidden');
+      modal.setAttribute('aria-hidden', 'false');
+      modal.querySelector<HTMLButtonElement>('[data-modal-close]')?.focus();
+      return;
+    }
 
-        // Static site: no mail endpoint is configured, so never report a false success.
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            const notice = document.getElementById('contact-notice');
-            if (notice) notice.classList.remove('hidden');
-        }
+    if (target.closest('[data-modal-close]') || target === modal) {
+      closeBookModal();
+      return;
+    }
 
-        // Local editorial summary; no API key or third-party request is required.
-        function generateAILiterarySummary() {
-            const box = document.getElementById('ai-response-box');
-            const content = document.getElementById('ai-text-content');
-            if (!box || !content) return;
-            content.textContent = 'Ahmed Oubali vincula la narrativa noir y policiaca con la investigación semiótica y la crítica literaria. Sus publicaciones exploran el relato de intriga, la construcción de la identidad y los signos culturales en la literatura marroquí en lengua española. Su actividad docente abarca español, francés, inglés, alemán y árabe. Esta síntesis es editorial y estática; no se genera mediante un servicio de inteligencia artificial.';
-            box.classList.remove('hidden');
-        }
+    if (target.closest('[data-summary-open]')) {
+      document.querySelector('#ai-response-box')?.classList.remove('hidden');
+      return;
+    }
 
-    </script>
-</main></BaseLayout>
+    if (target.closest('[data-summary-close]')) {
+      document.querySelector('#ai-response-box')?.classList.add('hidden');
+    }
+  });
+
+  document.querySelector<HTMLInputElement>('#pdf-search-input')?.addEventListener('input', (event) => {
+    const query = (event.currentTarget as HTMLInputElement).value.trim().toLocaleLowerCase();
+    let visibleCount = 0;
+    document.querySelectorAll<HTMLElement>('.pdf-item').forEach((item) => {
+      const title = item.querySelector('.pdf-title')?.textContent?.toLocaleLowerCase() ?? '';
+      const visible = title.includes(query);
+      item.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+    document.querySelector('#pdf-empty-state')?.classList.toggle('hidden', visibleCount > 0);
+  });
+
+  document.querySelector<HTMLFormElement>('#contact-form')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    document.querySelector('#contact-notice')?.classList.remove('hidden');
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeBookModal();
+      document.querySelector('#ai-response-box')?.classList.add('hidden');
+    }
+  });
+</script>
