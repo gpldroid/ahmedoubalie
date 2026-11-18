@@ -2,6 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LiteraryAssistantSection from '../components/LiteraryAssistantSection.astro';
 ---
-<BaseLayout title="Espacio literario | Ahmed Oubali" description="Síntesis editorial del perfil literario, la investigación semiótica y la docencia de Ahmed Oubali.">
-  <main id="main-content"><header class="page-hero"><span class="section-eyebrow">Investigación y escritura</span><h1>Espacio literario</h1><p>Síntesis editorial de las líneas de trabajo narrativo, académico y docente.</p></header><LiteraryAssistantSection /></main>
+<BaseLayout title="Espacio literario | Ahmed Oubali" description="Síntesis editorial de la narrativa, la investigación semiótica y la docencia de Ahmed Oubali.">
+  <main id="main-content" class="editorial-page">
+    <header class="page-hero"><span class="section-eyebrow">Investigación y escritura</span><h1>Espacio literario</h1><p>Una guía de lectura por las líneas narrativas, académicas y críticas presentes en la bibliografía.</p></header>
+    <LiteraryAssistantSection />
+    <section class="literary-themes section-shell" aria-labelledby="literary-themes-title">
+      <header><span class="section-eyebrow">Claves de lectura</span><h2 id="literary-themes-title">Temas y campos de interés</h2><p>Estos ejes permiten orientarse entre los títulos y descripciones disponibles en el catálogo.</p></header>
+      <div class="theme-grid">
+        <article><span>01 / NARRATIVA</span><h3>Intriga y relato policial</h3><p>Construcción del misterio, desarrollo de la trama y representación de los conflictos humanos.</p></article>
+        <article><span>02 / SEMIÓTICA</span><h3>Signos y cultura</h3><p>Lectura de los sistemas de significación y de su presencia en textos y contextos culturales.</p></article>
+        <article><span>03 / CRÍTICA</span><h3>Identidad y voz literaria</h3><p>Análisis de la identidad, la subjetividad y las formas de representación en la literatura.</p></article>
+      </div>
+      <p class="literary-next">Para profundizar en obras concretas, visita <a href={import.meta.env.BASE_URL + 'publicaciones/'}>Publicaciones</a>.</p>
+    </section>
+  </main>
 </BaseLayout>
+<style>
+.literary-themes{padding-block:3.5rem 5rem}.literary-themes>header{max-width:48rem;margin-bottom:1.5rem}.literary-themes h2{font:600 clamp(2rem,4vw,3rem)/1.15 'Playfair Display',Georgia,serif;margin:.5rem 0}.literary-themes header p,.theme-grid p,.literary-next{color:var(--muted);font-size:.9rem;line-height:1.8}.theme-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.theme-grid article{padding:1.5rem;background:var(--surface);border:1px solid var(--line);border-radius:1rem}.theme-grid article>span{color:var(--gold-deep);font-size:.65rem;font-weight:800;letter-spacing:.1em}.theme-grid h3{font:600 1.25rem 'Playfair Display',Georgia,serif}.literary-next{margin-top:1.5rem}.literary-next a{color:var(--gold-deep);font-weight:700}
+@media(max-width:700px){.theme-grid{grid-template-columns:1fr}}
+</style>

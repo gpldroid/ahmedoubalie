@@ -2,6 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactSection from '../components/ContactSection.astro';
 ---
-<BaseLayout title="Contacto | Ahmed Oubali" description="Información de contacto para consultas académicas, publicaciones e invitaciones.">
-  <main id="main-content"><header class="page-hero"><span class="section-eyebrow">Comunicación</span><h1>Contacto</h1><p>Consultas académicas, literarias y editoriales.</p></header><ContactSection /></main>
+<BaseLayout title="Contacto | Ahmed Oubali" description="Canal público de contacto para consultas académicas, publicaciones e invitaciones.">
+  <main id="main-content" class="editorial-page">
+    <header class="page-hero"><span class="section-eyebrow">Comunicación</span><h1>Contacto</h1><p>Para consultas académicas, literarias y editoriales, utiliza el canal público indicado a continuación.</p></header>
+    <ContactSection />
+    <section class="contact-information section-shell" aria-labelledby="contact-information-title">
+      <div><span class="section-eyebrow">Antes de escribir</span><h2 id="contact-information-title">¿Qué información incluir?</h2><p>Para facilitar la lectura de tu consulta, indica de forma breve el motivo del mensaje y el contexto relacionado con tu solicitud.</p></div>
+      <ul><li><strong>Asunto:</strong> especifica si se trata de docencia, investigación, publicaciones o invitaciones.</li><li><strong>Contexto:</strong> añade los datos necesarios para comprender la consulta.</li><li><strong>Seguimiento:</strong> utiliza el canal oficial para cualquier respuesta o continuación.</li></ul>
+      <p class="contact-caution">Este sitio no publica una dirección de correo verificada ni dispone de un formulario conectado a un sistema de recepción. No introduzcas información confidencial en páginas externas.</p>
+    </section>
+  </main>
 </BaseLayout>
+<style>
+.contact-information{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 3rem;padding-block:3.5rem 5rem}.contact-information h2{font:600 clamp(2rem,4vw,3rem)/1.15 'Playfair Display',Georgia,serif;margin:.5rem 0}.contact-information p,.contact-information li{color:var(--muted);font-size:.9rem;line-height:1.8}.contact-information ul{margin:0;padding-left:1.2rem}.contact-information li+li{margin-top:.7rem}.contact-information li strong{color:var(--ink)}.contact-caution{grid-column:1/-1;padding:1rem;background:var(--surface);border-left:3px solid var(--gold)}
+@media(max-width:700px){.contact-information{grid-template-columns:1fr}}
+</style>

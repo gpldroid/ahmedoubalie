@@ -2,6 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LanguagesSection from '../components/LanguagesSection.astro';
 ---
-<BaseLayout title="Idiomas y docencia | Ahmed Oubali" description="Áreas de docencia lingüística y literaria de Ahmed Oubali: español, francés, inglés, alemán y árabe.">
-  <main id="main-content"><header class="page-hero"><span class="section-eyebrow">Área académica</span><h1>Idiomas y docencia</h1><p>Lengua, cultura, expresión escrita y análisis textual.</p></header><LanguagesSection /></main>
+<BaseLayout title="Idiomas y docencia | Ahmed Oubali" description="Áreas de docencia lingüística y literaria: español, francés, inglés, alemán y árabe.">
+  <main id="main-content" class="editorial-page">
+    <header class="page-hero"><span class="section-eyebrow">Área académica</span><h1>Idiomas y docencia</h1><p>Lengua, cultura, expresión escrita y análisis textual en cinco ámbitos lingüísticos.</p></header>
+    <LanguagesSection />
+    <section class="language-method section-shell" aria-labelledby="language-method-title">
+      <header><span class="section-eyebrow">Enfoque de aprendizaje</span><h2 id="language-method-title">La lengua en contexto</h2><p>El aprendizaje de un idioma no se limita a memorizar vocabulario o reglas: también implica comprender cómo se comunica, se escribe y se interpreta en contextos reales y culturales.</p></header>
+      <div class="method-grid">
+        <article><span>01</span><h3>Comprensión</h3><p>Lectura y escucha para reconocer estructuras, registros y matices de sentido.</p></article>
+        <article><span>02</span><h3>Expresión</h3><p>Práctica de la comunicación oral y escrita, con atención a la claridad y la precisión.</p></article>
+        <article><span>03</span><h3>Cultura y textos</h3><p>Acercamiento a textos literarios y culturales como vía para ampliar la competencia lingüística.</p></article>
+      </div>
+      <p class="method-footnote">Los idiomas y las áreas descritas resumen la orientación docente presentada en este sitio; no constituyen una certificación oficial de niveles.</p>
+    </section>
+  </main>
 </BaseLayout>
+<style>
+.language-method{padding-block:3.5rem 5rem}.language-method>header{max-width:52rem;margin-bottom:2rem}.language-method h2{font:600 clamp(2rem,4vw,3rem)/1.15 'Playfair Display',Georgia,serif;margin:.5rem 0}.language-method header p,.method-grid p,.method-footnote{color:var(--muted);line-height:1.8}.method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.method-grid article{padding:1.5rem;border:1px solid var(--line);border-radius:1rem;background:var(--surface)}.method-grid article>span{color:var(--gold-deep);font-size:.7rem;font-weight:800}.method-grid h3{font:600 1.25rem 'Playfair Display',Georgia,serif}.method-grid p,.method-footnote{font-size:.88rem}.method-footnote{margin-top:1.4rem}
+@media(max-width:700px){.method-grid{grid-template-columns:1fr}}
+</style>
