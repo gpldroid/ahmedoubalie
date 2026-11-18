@@ -527,3 +527,22 @@ p,li{overflow-wrap:anywhere}
 .site-footer small {
   color: #b5afa3;
 }
+
+
+/* Final desktop navigation layout: reserve enough room for the complete menu */
+@media (min-width: 1401px) {
+  .nav-inner { display:grid; grid-template-columns:max-content minmax(0,1fr); gap:clamp(1rem,2vw,2rem); }
+  .nav-links { display:flex; flex-wrap:nowrap; justify-content:flex-end; align-items:center; min-width:0; gap:clamp(.45rem,.75vw,.8rem); font-size:clamp(.66rem,.58vw,.76rem); }
+  .nav-links > a { white-space:nowrap; }
+  .menu-toggle { display:none; }
+  .mobile-menu { display:none !important; }
+}
+@media (max-width: 1400px) {
+  .nav-inner { display:flex; justify-content:space-between; }
+  .nav-links { display:none !important; }
+  .menu-toggle { display:grid; flex:0 0 44px; }
+  .mobile-menu:not([hidden]) { display:grid !important; }
+}
+@media (max-width: 680px) {
+  .mobile-menu { padding-inline:1rem; }
+}
