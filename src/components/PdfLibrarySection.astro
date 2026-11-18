@@ -1,0 +1,79 @@
+<section id="pdf-library" class="py-20 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 lg:p-12 border border-stone-200 shadow-xl">
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-10 pb-8 border-b border-stone-200">
+                    <div>
+                        <span class="inline-flex items-center gap-2 text-xs font-bold text-red-600 bg-red-50 border border-red-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                            <i class="fa-solid fa-file-pdf"></i> Biblioteca de Libre Acceso
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mt-3">Descargas de Libros & Documentos PDF</h2>
+                        <p class="text-stone-600 text-sm mt-1">Acceso directo a ensayos, análisis semióticos y publicaciones completas del autor.</p>
+                    </div>
+                    <!-- Search Input for PDFs -->
+                    <div class="w-full lg:w-80 relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
+                        <input type="text" id="pdf-search-input" onkeyup="filterPDFs()" placeholder="Buscar publicaciones PDF..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold">
+                    </div>
+                </div>
+
+                <!-- PDF Items List -->
+                <div class="space-y-4" id="pdf-list-container">
+                    
+                    <!-- Item 1 -->
+                    <div class="pdf-item flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 hover:bg-red-50/20 transition gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-stone-900 text-base pdf-title">Tánger en la Novela Policial & Narratología Noir</h4>
+                                <p class="text-xs text-stone-500 mt-0.5">Categoría: Ensayo Policiaco • Idioma: Español • Formato: PDF/eBook</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <a href="https://ahmedoubali.blogspot.com" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold text-red-700 bg-red-100 hover:bg-red-200 transition flex items-center gap-2">
+                                <i class="fa-solid fa-download"></i> Descargar / Ver Blog
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="pdf-item flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 hover:bg-red-50/20 transition gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-stone-900 text-base pdf-title">Iniciación al Análisis Semiótico de Textos</h4>
+                                <p class="text-xs text-stone-500 mt-0.5">Categoría: Filología & Docencia • Idioma: Español • Guía Teórica</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <a href="https://ahmedoubali.blogspot.com" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold text-red-700 bg-red-100 hover:bg-red-200 transition flex items-center gap-2">
+                                <i class="fa-solid fa-download"></i> Descargar / Ver Blog
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="pdf-item flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-stone-50 rounded-2xl border border-stone-200 hover:border-red-300 hover:bg-red-50/20 transition gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-stone-900 text-base pdf-title">El Poema como Espacio Patémico: Estudio de Pasiones</h4>
+                                <p class="text-xs text-stone-500 mt-0.5">Categoría: Crítica Literaria • Idioma: Español • Estudio Académico</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <a href="https://ahmedoubali.blogspot.com" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold text-red-700 bg-red-100 hover:bg-red-200 transition flex items-center gap-2">
+                                <i class="fa-solid fa-download"></i> Descargar / Ver Blog
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
