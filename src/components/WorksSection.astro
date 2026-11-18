@@ -1,38 +1,28 @@
-<section id="works" class="py-20 bg-stone-900 text-white section-works">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <header class="text-center max-w-3xl mx-auto mb-14">
-      <span class="text-xs font-bold text-brand-gold uppercase tracking-widest block mb-2">Publicaciones bibliográficas</span>
-      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-100">Novelas &amp; Ensayos Destacados</h2>
-      <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full my-4"></div>
-      <p class="text-stone-400 text-sm">Explora la bibliografía de Ahmed Oubali: novela negra, crítica semiótica y estudios filológicos.</p>
-      <div class="flex flex-wrap justify-center gap-2 mt-8" id="work-filters" aria-label="Filtrar publicaciones">
-        <button type="button" data-work-filter="all" aria-pressed="true" class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold">Todas las obras</button>
-        <button type="button" data-work-filter="misterio" aria-pressed="false" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold">Novela negra &amp; misterio</button>
-        <button type="button" data-work-filter="ensayo" aria-pressed="false" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold">Ensayos &amp; semiótica</button>
+<section id="works" class="site-section works-section">
+  <div class="section-shell">
+    <header class="section-heading section-heading--center">
+      <span class="section-eyebrow">Bibliografía seleccionada</span><h2>Novelas y ensayos destacados</h2>
+      <p>Un recorrido por la narrativa de intriga y la investigación semiótica de Ahmed Oubali.</p>
+      <div class="work-filters" id="work-filters" aria-label="Filtrar publicaciones">
+        <button type="button" data-work-filter="all" aria-pressed="true" class="filter-btn active">Todas las obras</button>
+        <button type="button" data-work-filter="misterio" aria-pressed="false" class="filter-btn">Novela y misterio</button>
+        <button type="button" data-work-filter="ensayo" aria-pressed="false" class="filter-btn">Ensayo y semiótica</button>
       </div>
     </header>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="works-grid">
-      <article class="work-card rounded-2xl border overflow-hidden flex flex-col" data-category="misterio">
-        <div class="work-art"><i class="fa-solid fa-skull" aria-hidden="true"></i><span>Novela noir</span></div>
-        <div class="work-content">
-          <div><h3 class="font-serif text-xl font-bold">Chivos Expiatorios</h3><p class="text-xs mt-2 leading-relaxed">Novela policiaca ambientada en un entorno de intriga psicológica y giros narrativos inesperados.</p></div>
-          <div class="work-meta"><span>Novela · 226 págs.</span><button type="button" data-book-open data-title="Chivos Expiatorios" data-description="Novela referente del género negro hispanomagrebí. Con una sólida construcción narrativa, se adentra en la psicología humana y el misterio." data-category="misterio">Ver detalles →</button></div>
-        </div>
+    <div class="publication-grid" id="works-grid">
+      <article class="publication-card work-card" data-category="misterio">
+        <div class="publication-cover cover-noir" role="img" aria-label="Composición gráfica editorial de Chivos expiatorios"><span class="cover-overline">Ahmed Oubali · Narrativa</span><strong>CHIVOS<br/>EXPIATORIOS</strong><span class="cover-rule"></span><small>NOVELA NEGRA</small><span class="cover-note">Diseño gráfico ilustrativo</span></div>
+        <div class="publication-copy"><span class="publication-type">Novela · 2014</span><h3>Chivos expiatorios</h3><p>Relatos de intriga ambientados entre Marruecos y España, con tramas de crimen, ambición y pasiones humanas.</p><div class="publication-actions"><button type="button" data-book-open data-title="Chivos expiatorios" data-description="Once relatos breves de intriga ambientados entre Marruecos y España, con tramas de crimen, ambición y pasiones humanas." data-category="Novela negra">Ver detalles <span aria-hidden="true">↗</span></button><a href="https://www.amazon.es/CHIVOS-EXPIATORIOS-Ahmed-Oubali/dp/1688050124" target="_blank" rel="noopener noreferrer">Consultar edición</a></div></div>
       </article>
-      <article class="work-card rounded-2xl border overflow-hidden flex flex-col" data-category="misterio">
-        <div class="work-art"><i class="fa-solid fa-brain" aria-hidden="true"></i><span>Suspenso</span></div>
-        <div class="work-content">
-          <div><h3 class="font-serif text-xl font-bold">Narcolepsia &amp; Tétrica Mente</h3><p class="text-xs mt-2 leading-relaxed">Dos obras de suspenso psicológico que exploran la percepción y los laberintos de la mente.</p></div>
-          <div class="work-meta"><span>Novela · 212 págs.</span><button type="button" data-book-open data-title="Narcolepsia / Tétrica Mente" data-description="Obras de tensión narrativa y análisis de personajes. Exploran los secretos del engaño y las secuelas psicológicas en historias envolventes." data-category="misterio">Ver detalles →</button></div>
-        </div>
+      <article class="publication-card work-card" data-category="misterio">
+        <div class="publication-cover cover-shadow" role="img" aria-label="Composición gráfica editorial de Narcolepsia"><span class="cover-overline">Ahmed Oubali · Narrativa</span><strong>NARCO<br/>LEPSIA</strong><span class="cover-rule"></span><small>CUATRO RELATOS NOIR</small><span class="cover-note">Diseño gráfico ilustrativo</span></div>
+        <div class="publication-copy"><span class="publication-type">Novela negra · 2022</span><h3>Narcolepsia</h3><p>Cuatro relatos noir atravesados por el dinero, la intriga y los misterios de la vida nocturna.</p><div class="publication-actions"><button type="button" data-book-open data-title="Narcolepsia" data-description="Cuatro relatos noir atravesados por el dinero, el suspense y la maldad: intrigas nocturnas, persecuciones y misterios." data-category="Novela negra">Ver detalles <span aria-hidden="true">↗</span></button><a href="https://www.amazon.es/NARCOLEPSIA-AHMED-OUBALI/dp/B09QP6QN3X" target="_blank" rel="noopener noreferrer">Consultar edición</a></div></div>
       </article>
-      <article class="work-card rounded-2xl border overflow-hidden flex flex-col" data-category="ensayo">
-        <div class="work-art"><i class="fa-solid fa-book-journal-whills" aria-hidden="true"></i><span>Semiótica</span></div>
-        <div class="work-content">
-          <div><h3 class="font-serif text-xl font-bold">La Danza de los Signos</h3><p class="text-xs mt-2 leading-relaxed">Estudio semiótico sobre la literatura marroquí escrita en lengua española y sus códigos culturales.</p></div>
-          <div class="work-meta"><span>Ensayo académico</span><button type="button" data-book-open data-title="La Danza de los Signos en la literatura marroquí en lengua española" data-description="Obra teórica que analiza las estructuras de representación, los símbolos y la convergencia hispanomagrebí." data-category="ensayo">Ver detalles →</button></div>
-        </div>
+      <article class="publication-card work-card" data-category="ensayo">
+        <div class="publication-cover cover-semiotic" role="img" aria-label="Composición gráfica editorial de La danza de los signos"><span class="cover-overline">Ahmed Oubali · Investigación</span><strong>LA DANZA<br/>DE LOS<br/>SIGNOS</strong><span class="cover-rule"></span><small>ESTUDIO SEMIÓTICO</small><span class="cover-note">Diseño gráfico ilustrativo</span></div>
+        <div class="publication-copy"><span class="publication-type">Semiótica · 2020</span><h3>La danza de los signos</h3><p>Estudio de autores marroquíes que escriben en español y de sus universos culturales y literarios.</p><div class="publication-actions"><button type="button" data-book-open data-title="La danza de los signos en la literatura marroquí en lengua española" data-description="Estudio semiótico de obras de autores marroquíes que escriben en español, entre ellos Mohamed Sibari, Mohamed Chakor y Ahmed Daoudi." data-category="Semiótica">Ver detalles <span aria-hidden="true">↗</span></button><a href="https://www.amazon.com/-/es/Ahmed-Oubali-ebook/dp/B08L1CJDJ8" target="_blank" rel="noopener noreferrer">Consultar edición</a></div></div>
       </article>
     </div>
+    <p class="publication-disclaimer">Las composiciones mostradas son recursos gráficos de presentación y no reproducciones de las portadas originales.</p>
   </div>
 </section>
