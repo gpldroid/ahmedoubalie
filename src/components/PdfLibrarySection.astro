@@ -1,45 +1,44 @@
 ---
 import Icon3D from './Icon3D.astro';
 const root = import.meta.env.BASE_URL;
+const authorStore = 'https://www.amazon.com/Books-Ahmed-Oubali/s?rh=n%3A283155%2Cp_27%3AAhmed%2BOubali';
 ---
 <section id="pdf-library" class="site-section pdf-section">
   <div class="section-shell">
     <div class="pdf-panel">
       <header class="pdf-header">
         <div>
-          <span class="section-eyebrow">Recursos de lectura</span>
-          <h2>Publicaciones y documentos</h2>
-          <p>Esta sección reúne títulos y temas relacionados con la obra. Los enlaces conducen al blog oficial para localizar cada publicación; no son enlaces directos de descarga PDF. Las ediciones comerciales se encuentran en el catálogo de Amazon.</p>
-          <a class="pdf-catalog-link" href={root + 'books/'}>Ver catálogo de libros en Amazon <Icon3D name="external" /></a>
+          <span class="section-eyebrow">Libros y lectura digital</span>
+          <h2>Catálogo de libros y publicaciones</h2>
+          <p>Consulta las obras de Ahmed Oubali y accede a sus fichas comerciales. Cuando Amazon ofrece una edición Kindle, aparecerá entre los formatos disponibles en la página del libro. Esta página no aloja archivos PDF ni presenta enlaces de descarga directa.</p>
+          <div class="pdf-actions">
+            <a class="pdf-catalog-link" href={root + 'books/'}>Explorar el catálogo del sitio <Icon3D name="external" /></a>
+            <a class="pdf-amazon-link" href={authorStore} target="_blank" rel="noopener noreferrer">Ver libros en Amazon <Icon3D name="external" /></a>
+          </div>
         </div>
         <label class="pdf-search">
           <span class="sr-only">Buscar publicaciones</span>
           <Icon3D name="sparkle" />
-          <input type="search" id="pdf-search-input" placeholder="Buscar publicaciones..." autocomplete="off"/>
+          <input type="search" id="pdf-search-input" placeholder="Buscar en el catálogo..." autocomplete="off"/>
         </label>
       </header>
       <div class="pdf-list" id="pdf-list-container">
         <article class="pdf-item">
-          <span class="pdf-item-icon"><Icon3D name="file" /></span>
-          <div class="pdf-item-copy"><h3 class="pdf-title">Tánger en la novela policial y narratología noir</h3><p>Ensayo · Español · Referencia en el blog oficial</p></div>
-          <a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Buscar en el blog <Icon3D name="external" /></a>
+          <span class="pdf-item-icon"><Icon3D name="book" /></span>
+          <div class="pdf-item-copy"><h3 class="pdf-title">Obras narrativas y estudios literarios</h3><p>Catálogo de títulos y enlaces a las ediciones comerciales verificables.</p></div>
+          <a href={root + 'books/'}>Abrir catálogo <Icon3D name="external" /></a>
         </article>
         <article class="pdf-item">
-          <span class="pdf-item-icon"><Icon3D name="file" /></span>
-          <div class="pdf-item-copy"><h3 class="pdf-title">Iniciación al análisis semiótico de textos</h3><p>Filología y docencia · Español · Referencia en el blog oficial</p></div>
-          <a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Buscar en el blog <Icon3D name="external" /></a>
-        </article>
-        <article class="pdf-item">
-          <span class="pdf-item-icon"><Icon3D name="file" /></span>
-          <div class="pdf-item-copy"><h3 class="pdf-title">El poema como espacio patémico</h3><p>Crítica literaria · Español · Referencia en el blog oficial</p></div>
-          <a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Buscar en el blog <Icon3D name="external" /></a>
+          <span class="pdf-item-icon"><Icon3D name="book-open" /></span>
+          <div class="pdf-item-copy"><h3 class="pdf-title">Ediciones digitales Kindle</h3><p>Consulta los formatos disponibles en cada ficha de Amazon; la oferta depende del título y del país.</p></div>
+          <a href={authorStore} target="_blank" rel="noopener noreferrer">Ver en Amazon <Icon3D name="external" /></a>
         </article>
       </div>
       <p id="pdf-empty-state" class="hidden pdf-empty" role="status">No se encontraron publicaciones con ese título.</p>
+      <p class="pdf-disclaimer">Kindle no equivale necesariamente a PDF. Los formatos, precios y disponibilidad los determina Amazon. Solo se añadirán descargas PDF cuando exista un archivo público cuya distribución esté autorizada.</p>
     </div>
   </div>
 </section>
 <style>
-.pdf-catalog-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:.8rem;color:#8b0000;font-weight:700;text-decoration:none}
-.pdf-catalog-link:hover{text-decoration:underline}
+.pdf-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.8rem}.pdf-catalog-link,.pdf-amazon-link{display:inline-flex;align-items:center;gap:.5rem;color:#8b0000;font-weight:700;text-decoration:none}.pdf-amazon-link{padding:.65rem 1rem;border-radius:2rem;background:#2c150b;color:#f3d77d}.pdf-catalog-link:hover,.pdf-amazon-link:hover{text-decoration:underline}.pdf-disclaimer{margin-top:1.2rem;color:var(--muted);font-size:.8rem;line-height:1.7}
 </style>
