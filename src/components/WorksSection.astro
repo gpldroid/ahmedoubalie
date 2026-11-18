@@ -1,84 +1,38 @@
-<section id="works" class="py-20 bg-stone-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <span class="text-xs font-bold text-brand-gold uppercase tracking-widest block mb-2">Publicaciones Bibliográficas</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-100">Novelas & Ensayos Destacados</h2>
-                <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full my-4"></div>
-                <p class="text-stone-400 text-sm">
-                    Explora la bibliografía completa de Ahmed Oubali: Novelas de suspenso, crítica semiótica y estudios filológicos.
-                </p>
-
-                <!-- Filter Category Buttons -->
-                <div class="flex flex-wrap justify-center gap-2 mt-8" id="work-filters">
-                    <button onclick="filterWorks('all')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-gold text-brand-900">Todas las Obras</button>
-                    <button onclick="filterWorks('misterio')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-stone-800 text-stone-300 hover:bg-stone-700">Novela Negra & Misterio</button>
-                    <button onclick="filterWorks('ensayo')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-stone-800 text-stone-300 hover:bg-stone-700">Ensayos & Semiótica</button>
-                </div>
-            </div>
-
-            <!-- Grid of Works -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="works-grid">
-                
-                <!-- Book Card 1 -->
-                <div class="work-card bg-stone-800/80 rounded-2xl border border-stone-700 overflow-hidden hover:border-brand-gold/60 transition group flex flex-col" data-category="misterio">
-                    <div class="aspect-[16/10] bg-stone-900 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-stone-900 to-stone-950">
-                        <i class="fa-solid fa-skull text-6xl text-brand-gold/30 group-hover:scale-110 transition duration-300"></i>
-                        <span class="absolute top-4 right-4 bg-red-950/80 text-red-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-red-800/50">Novela Noir</span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-xl font-bold text-stone-100 group-hover:text-brand-gold transition">Chivos Expiatorios</h3>
-                            <p class="text-xs text-stone-400 mt-2 leading-relaxed">Emblemática novela policiaca ambientada en un entorno fascinante de intriga psicológica y giros narrativos inesperados.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-700 flex justify-between items-center">
-                            <span class="text-xs text-stone-400 font-mono">Novela • 226 págs.</span>
-                            <button onclick="openBookModal('Chivos Expiatorios', 'Novela referente del género negro hispanomagrebí. Con una sólida construcción narrativa, se adentra en las profundidades de la psicología humana y el misterio.', 'misterio')" class="text-xs font-bold text-brand-gold hover:underline flex items-center gap-1">
-                                Ver Detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Book Card 2 -->
-                <div class="work-card bg-stone-800/80 rounded-2xl border border-stone-700 overflow-hidden hover:border-brand-gold/60 transition group flex flex-col" data-category="misterio">
-                    <div class="aspect-[16/10] bg-stone-900 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-stone-900 to-stone-950">
-                        <i class="fa-solid fa-brain text-6xl text-brand-gold/30 group-hover:scale-110 transition duration-300"></i>
-                        <span class="absolute top-4 right-4 bg-amber-950/80 text-amber-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-amber-800/50">Suspenso</span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-xl font-bold text-stone-100 group-hover:text-brand-gold transition">Narcolepsia & Tétrica Mente</h3>
-                            <p class="text-xs text-stone-400 mt-2 leading-relaxed">Dos obras maestras del suspenso psicológico e investigación de la mente asesina y los laberintos de la percepción.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-700 flex justify-between items-center">
-                            <span class="text-xs text-stone-400 font-mono">Novela • 212 págs.</span>
-                            <button onclick="openBookModal('Narcolepsia / Tétrica Mente', 'Obras cargadas de tensión narrativa y análisis de personajes al límite. Explora los secretos del engaño y las secuelas psicológicas en historias envolventes.', 'misterio')" class="text-xs font-bold text-brand-gold hover:underline flex items-center gap-1">
-                                Ver Detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Book Card 3 -->
-                <div class="work-card bg-stone-800/80 rounded-2xl border border-stone-700 overflow-hidden hover:border-brand-gold/60 transition group flex flex-col" data-category="ensayo">
-                    <div class="aspect-[16/10] bg-stone-900 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-stone-900 to-stone-950">
-                        <i class="fa-solid fa-book-journal-whills text-6xl text-brand-gold/30 group-hover:scale-110 transition duration-300"></i>
-                        <span class="absolute top-4 right-4 bg-emerald-950/80 text-emerald-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-800/50">Semiótica</span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-xl font-bold text-stone-100 group-hover:text-brand-gold transition">La Danza de los Signos</h3>
-                            <p class="text-xs text-stone-400 mt-2 leading-relaxed">Estudio semiótico indispensable sobre la literatura marroquí escrita en lengua española y sus códigos culturales.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-stone-700 flex justify-between items-center">
-                            <span class="text-xs text-stone-400 font-mono">Ensayo Académico</span>
-                            <button onclick="openBookModal('La Danza de los Signos en la literatura marroquí en lengua española', 'Obra teórica fundamental que analiza las estructuras de representación, símbolos y convergencia hispanomagrebí.', 'ensayo')" class="text-xs font-bold text-brand-gold hover:underline flex items-center gap-1">
-                                Ver Detalles <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+<section id="works" class="py-20 bg-stone-900 text-white section-works">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-xs font-bold text-brand-gold uppercase tracking-widest block mb-2">Publicaciones bibliográficas</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-100">Novelas &amp; Ensayos Destacados</h2>
+      <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full my-4"></div>
+      <p class="text-stone-400 text-sm">Explora la bibliografía de Ahmed Oubali: novela negra, crítica semiótica y estudios filológicos.</p>
+      <div class="flex flex-wrap justify-center gap-2 mt-8" id="work-filters" aria-label="Filtrar publicaciones">
+        <button type="button" data-work-filter="all" aria-pressed="true" class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold">Todas las obras</button>
+        <button type="button" data-work-filter="misterio" aria-pressed="false" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold">Novela negra &amp; misterio</button>
+        <button type="button" data-work-filter="ensayo" aria-pressed="false" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold">Ensayos &amp; semiótica</button>
+      </div>
+    </header>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="works-grid">
+      <article class="work-card rounded-2xl border overflow-hidden flex flex-col" data-category="misterio">
+        <div class="work-art"><i class="fa-solid fa-skull" aria-hidden="true"></i><span>Novela noir</span></div>
+        <div class="work-content">
+          <div><h3 class="font-serif text-xl font-bold">Chivos Expiatorios</h3><p class="text-xs mt-2 leading-relaxed">Novela policiaca ambientada en un entorno de intriga psicológica y giros narrativos inesperados.</p></div>
+          <div class="work-meta"><span>Novela · 226 págs.</span><button type="button" data-book-open data-title="Chivos Expiatorios" data-description="Novela referente del género negro hispanomagrebí. Con una sólida construcción narrativa, se adentra en la psicología humana y el misterio." data-category="misterio">Ver detalles →</button></div>
         </div>
-    </section>
+      </article>
+      <article class="work-card rounded-2xl border overflow-hidden flex flex-col" data-category="misterio">
+        <div class="work-art"><i class="fa-solid fa-brain" aria-hidden="true"></i><span>Suspenso</span></div>
+        <div class="work-content">
+          <div><h3 class="font-serif text-xl font-bold">Narcolepsia &amp; Tétrica Mente</h3><p class="text-xs mt-2 leading-relaxed">Dos obras de suspenso psicológico que exploran la percepción y los laberintos de la mente.</p></div>
+          <div class="work-meta"><span>Novela · 212 págs.</span><button type="button" data-book-open data-title="Narcolepsia / Tétrica Mente" data-description="Obras de tensión narrativa y análisis de personajes. Exploran los secretos del engaño y las secuelas psicológicas en historias envolventes." data-category="misterio">Ver detalles →</button></div>
+        </div>
+      </article>
+      <article class="work-card rounded-2xl border overflow-hidden flex flex-col" data-category="ensayo">
+        <div class="work-art"><i class="fa-solid fa-book-journal-whills" aria-hidden="true"></i><span>Semiótica</span></div>
+        <div class="work-content">
+          <div><h3 class="font-serif text-xl font-bold">La Danza de los Signos</h3><p class="text-xs mt-2 leading-relaxed">Estudio semiótico sobre la literatura marroquí escrita en lengua española y sus códigos culturales.</p></div>
+          <div class="work-meta"><span>Ensayo académico</span><button type="button" data-book-open data-title="La Danza de los Signos en la literatura marroquí en lengua española" data-description="Obra teórica que analiza las estructuras de representación, los símbolos y la convergencia hispanomagrebí." data-category="ensayo">Ver detalles →</button></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
