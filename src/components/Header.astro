@@ -1,15 +1,16 @@
 ---
 import SocialIcons from './SocialIcons.astro';
 import Icon3D from './Icon3D.astro';
-const root = import.meta.env.BASE_URL;
+const root = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 const links = [
-  { label: 'Inicio', href: root, key: 'inicio' },
+  { label: 'Inicio', href: root, key: '' },
   { label: 'Biografía', href: root + 'sobre-mi/', key: 'sobre-mi' },
   { label: 'Idiomas', href: root + 'idiomas/', key: 'idiomas' },
   { label: 'Publicaciones', href: root + 'publicaciones/', key: 'publicaciones' },
   { label: 'Recursos', href: root + 'biblioteca-pdf/', key: 'biblioteca-pdf' },
   { label: 'Libros', href: root + 'books/', key: 'books' },
-  { label: 'Asistente', href: root + 'asistente-literario/', key: 'asistente-literario' }
+  { label: 'Espacio literario', href: root + 'asistente-literario/', key: 'asistente-literario' },
+  { label: 'Contacto', href: root + 'contacto/', key: 'contacto', contact: true }
 ];
 const path = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^\/+|\/+$/g, '');
 ---
@@ -20,15 +21,14 @@ const path = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^
       <span><strong>Ahmed Oubali</strong><small>Escritor · Hispanista · Docente</small></span>
     </a>
     <div class="nav-links">
-      {links.map((item) => <a href={item.href} aria-current={path === item.key || (!path && item.key === 'inicio') ? 'page' : undefined}>{item.label}</a>)}
+      {links.map((item) => <a class:list={[item.contact && 'contact-link']} href={item.href} aria-current={path === item.key ? 'page' : undefined}>{item.label}{item.contact && <Icon3D name="mail" />}</a>)}
       <SocialIcons />
-      <a class="contact-link" href={root + 'contacto/'}>Contacto <Icon3D name="mail" /></a>
     </div>
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><Icon3D name="menu" /></button>
   </div>
   <div id="mobile-menu" class="mobile-menu" hidden>
-    {links.map((item) => <a href={item.href}>{item.label}</a>)}
-    <a href={root + 'contacto/'}>Contacto</a><SocialIcons />
+    {links.map((item) => <a href={item.href} aria-current={path === item.key ? 'page' : undefined}>{item.label}</a>)}
+    <SocialIcons />
   </div>
 </nav>
 <script>

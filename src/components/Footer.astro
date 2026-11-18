@@ -1,17 +1,26 @@
 ---
 import SocialIcons from './SocialIcons.astro';
-const root = import.meta.env.BASE_URL;
+const root = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+const mainLinks = [
+  ['Inicio', ''], ['Biografía', 'sobre-mi/'], ['Idiomas', 'idiomas/'],
+  ['Publicaciones', 'publicaciones/'], ['Recursos', 'biblioteca-pdf/'],
+  ['Libros', 'books/'], ['Espacio literario', 'asistente-literario/'], ['Contacto', 'contacto/']
+];
+const legalLinks = [
+  ['Aviso legal', 'aviso-legal/'], ['Privacidad', 'politica-de-privacidad/'],
+  ['Cookies', 'politica-de-cookies/'], ['Términos de uso', 'terminos-de-uso/']
+];
 ---
 <footer class="site-footer">
   <div class="footer-main">
     <p class="footer-name">Profesor Ahmed Oubali</p>
     <p class="footer-copy">Escritor, catedrático e hispanista marroquí. Un espacio dedicado a la literatura, la investigación y el diálogo entre culturas.</p>
+    <nav class="footer-nav" aria-label="Navegación del pie de página">
+      {mainLinks.map(([label, path]) => <a href={root + path}>{label}</a>)}
+    </nav>
     <SocialIcons />
     <nav class="legal-links" aria-label="Información legal">
-      <a href={root + 'aviso-legal/'}>Aviso legal</a>
-      <a href={root + 'politica-de-privacidad/'}>Privacidad</a>
-      <a href={root + 'politica-de-cookies/'}>Cookies</a>
-      <a href={root + 'terminos-de-uso/'}>Términos de uso</a>
+      {legalLinks.map(([label, path]) => <a href={root + path}>{label}</a>)}
       <a href={root + 'sitemap.xml'}>Mapa del sitio</a>
     </nav>
     <small>© {new Date().getFullYear()} Plataforma Literaria Ahmed Oubali. Todos los derechos reservados.</small>
