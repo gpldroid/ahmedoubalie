@@ -1,4 +1,45 @@
 ---
 import Icon3D from './Icon3D.astro';
+const root = import.meta.env.BASE_URL;
 ---
-<section id="pdf-library" class="site-section pdf-section"><div class="section-shell"><div class="pdf-panel"><header class="pdf-header"><div><span class="section-eyebrow">Biblioteca de libre acceso</span><h2>Publicaciones y documentos</h2><p>Consulta recursos, ensayos y publicaciones del autor en su blog oficial.</p></div><label class="pdf-search"><span class="sr-only">Buscar publicaciones PDF</span><Icon3D name="sparkle" /><input type="search" id="pdf-search-input" placeholder="Buscar publicaciones..." autocomplete="off"/></label></header><div class="pdf-list" id="pdf-list-container"><article class="pdf-item"><span class="pdf-item-icon"><Icon3D name="file" /></span><div class="pdf-item-copy"><h3 class="pdf-title">Tánger en la novela policial y narratología noir</h3><p>Ensayo · Español · PDF / eBook</p></div><a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Consultar en el blog <Icon3D name="external" /></a></article><article class="pdf-item"><span class="pdf-item-icon"><Icon3D name="file" /></span><div class="pdf-item-copy"><h3 class="pdf-title">Iniciación al análisis semiótico de textos</h3><p>Filología y docencia · Español · Guía teórica</p></div><a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Consultar en el blog <Icon3D name="external" /></a></article><article class="pdf-item"><span class="pdf-item-icon"><Icon3D name="file" /></span><div class="pdf-item-copy"><h3 class="pdf-title">El poema como espacio patémico</h3><p>Crítica literaria · Español · Estudio académico</p></div><a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Consultar en el blog <Icon3D name="external" /></a></article></div><p id="pdf-empty-state" class="hidden pdf-empty" role="status">No se encontraron publicaciones con ese título.</p></div></div></section>
+<section id="pdf-library" class="site-section pdf-section">
+  <div class="section-shell">
+    <div class="pdf-panel">
+      <header class="pdf-header">
+        <div>
+          <span class="section-eyebrow">Biblioteca de libre acceso</span>
+          <h2>Publicaciones y documentos</h2>
+          <p>Consulta artículos y materiales disponibles en el blog oficial. Para las ediciones comerciales de los libros, visita el catálogo de Amazon.</p>
+          <a class="pdf-catalog-link" href={root + 'books/'}>Ver catálogo de libros en Amazon <Icon3D name="external" /></a>
+        </div>
+        <label class="pdf-search">
+          <span class="sr-only">Buscar publicaciones PDF</span>
+          <Icon3D name="sparkle" />
+          <input type="search" id="pdf-search-input" placeholder="Buscar publicaciones..." autocomplete="off"/>
+        </label>
+      </header>
+      <div class="pdf-list" id="pdf-list-container">
+        <article class="pdf-item">
+          <span class="pdf-item-icon"><Icon3D name="file" /></span>
+          <div class="pdf-item-copy"><h3 class="pdf-title">Tánger en la novela policial y narratología noir</h3><p>Ensayo · Español · Consulta en el blog oficial</p></div>
+          <a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Consultar en el blog <Icon3D name="external" /></a>
+        </article>
+        <article class="pdf-item">
+          <span class="pdf-item-icon"><Icon3D name="file" /></span>
+          <div class="pdf-item-copy"><h3 class="pdf-title">Iniciación al análisis semiótico de textos</h3><p>Filología y docencia · Español · Consulta en el blog oficial</p></div>
+          <a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Consultar en el blog <Icon3D name="external" /></a>
+        </article>
+        <article class="pdf-item">
+          <span class="pdf-item-icon"><Icon3D name="file" /></span>
+          <div class="pdf-item-copy"><h3 class="pdf-title">El poema como espacio patémico</h3><p>Crítica literaria · Español · Consulta en el blog oficial</p></div>
+          <a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Consultar en el blog <Icon3D name="external" /></a>
+        </article>
+      </div>
+      <p id="pdf-empty-state" class="hidden pdf-empty" role="status">No se encontraron publicaciones con ese título.</p>
+    </div>
+  </div>
+</section>
+<style>
+.pdf-catalog-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:.8rem;color:#8b0000;font-weight:700;text-decoration:none}
+.pdf-catalog-link:hover{text-decoration:underline}
+</style>
