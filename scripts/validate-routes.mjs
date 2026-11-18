@@ -1,5 +1,5 @@
 import { access, readFile, readdir } from 'node:fs/promises';
-import { resolve, relative, extname, dirname, sep } from 'node:path';
+import { resolve, relative, extname } from 'node:path';
 
 const root = process.cwd();
 const dist = resolve(root, 'dist');
@@ -20,12 +20,14 @@ for (const relativePath of expectedFiles) {
   catch { missingFiles.push(relativePath); }
 }
 
-const sitemap = await readFile(resolve(dist, 'sitemap.xml'), 'utf8').catch(() => '');
-const siteBase = new URL('https://gpldroid.github.io/ahmedoubalie/');
+const siteBase = process.env.NETLIFY === 'true'
+  ? new URL('https://ahmedoubali.netlify.app/')
+  : new URL('https://gpldroid.github.io/ahmedoubalie/');
 const expectedUrls = [
   ...fixedRoutes.map((route) => new URL(route ? `${route}/` : '', siteBase).href),
   ...books.map((book) => new URL(`books/${book.slug}/`, siteBase).href),
 ];
+const sitemap = await readFile(resolve(dist, 'sitemap.xml'), 'utf8').catch(() => '');
 const actualUrls = new Set(sitemap.split('<loc>').slice(1).map((entry) => entry.split('</loc>')[0].replaceAll('&amp;', '&').trim()));
 const missingUrls = expectedUrls.filter((url) => !actualUrls.has(url));
 
@@ -43,9 +45,9 @@ const htmlFiles = await walk(dist);
 const brokenLinks = [];
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
-  const hrefs = [...html.matchAll(/\bhref=["']([^"'#][^"']*)["']/gi)].map((match) => match[1]);
+  const hrefs = [...html.matchAll(/\\bhref=["']([^"'#][^"']*)["']/gi)].map((match) => match[1]);
   for (const href of hrefs) {
-    if (/^(https?:|mailto:|tel:|javascript:|data:|\/\/)/i.test(href)) continue;
+    if (/^(https?:|mailto:|tel:|javascript:|data:|\\/\\/)/i.test(href)) continue;
     let url;
     try { url = new URL(href, siteBase); } catch { continue; }
     if (url.origin !== siteBase.origin || !url.pathname.startsWith(siteBase.pathname)) continue;
