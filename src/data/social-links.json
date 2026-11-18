@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Blogger",
+    "url": "https://ahmedoubali.blogspot.com",
+    "icon": "fa-brands fa-blogger",
+    "class": "blogger"
+  },
+  {
+    "label": "Facebook",
+    "url": "https://m.facebook.com/ahmed.oubali/",
+    "icon": "fa-brands fa-facebook",
+    "class": "facebook"
+  },
+  {
+    "label": "LinkedIn",
+    "url": "https://www.linkedin.com/in/ahmed-oubali-97ab2554/fr/?lipi=urn%3Ali%3Apage%3Ap_mwlite_search_srp_all%3BoBfgwPilRNG4kHVp%2BPhnxw%3D%3D",
+    "icon": "fa-brands fa-linkedin",
+    "class": "linkedin"
+  },
+  {
+    "label": "Amazon Books",
+    "url": "https://www.amazon.com/Books-Ahmed-Oubali/s?rh=n%3A283155%2Cp_27%3AAhmed%2BOubali",
+    "icon": "fa-brands fa-amazon",
+    "class": "amazon"
+  }
+]
