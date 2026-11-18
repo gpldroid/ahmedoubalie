@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon3D from '../components/Icon3D.astro';
+---
+<BaseLayout title="Página no encontrada | Ahmed Oubali" description="La página que buscas no está disponible.">
+  <main id="main-content" class="not-found">
+    <span class="not-found-mark">404</span>
+    <span class="section-eyebrow">Página no encontrada</span>
+    <h1>Este capítulo no está en el índice.</h1>
+    <p>Es posible que el enlace haya cambiado o que la página ya no exista. Puedes volver al inicio y continuar explorando el sitio.</p>
+    <a class="button-primary" href={import.meta.env.BASE_URL}>Volver al inicio <Icon3D name="arrow" /></a>
+  </main>
+</BaseLayout>

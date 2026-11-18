@@ -321,3 +321,8 @@ a:hover>.icon-3d,button:hover>.icon-3d,.contact-link:hover>.icon-3d{transform:tr
 @media(max-width:900px){.nav-links .social-links{display:none}}
 @media(max-width:680px){.nav-inner{min-height:70px}.page-hero{padding-top:3.5rem}.legal-content{width:calc(100% - 2rem)}.publication-book{grid-template-columns:100px minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.icon-3d,.publication-card,.button-primary{transition:none}}
+
+.cover,.detail-cover{background:linear-gradient(145deg,#4c5362,#252b36 68%,#171c24);box-shadow:inset 6px 0 14px #11151d,inset 1px 1px #ffffff30,0 16px 28px #20263330}
+.cover strong,.detail-cover strong{text-shadow:0 2px 8px #0b0e14aa}
+.book-card{box-shadow:0 12px 32px #252a3410,inset 0 1px #fff;transition:transform .22s ease,box-shadow .22s ease}
+.book-card:hover{transform:translateY(-5px);box-shadow:0 20px 38px #252a3420}
