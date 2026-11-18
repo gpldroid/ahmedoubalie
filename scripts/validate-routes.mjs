@@ -10,8 +10,8 @@ const fixedRoutes = [
   'politica-de-cookies', 'terminos-de-uso',
 ];
 const expectedFiles = [
-  ...fixedRoutes.map((route) => route ? `${route}/index.html` : 'index.html'),
-  ...books.map((book) => `books/${book.slug}/index.html`),
+  ...fixedRoutes.map((route) => route ? route + '/index.html' : 'index.html'),
+  ...books.map((book) => 'books/' + book.slug + '/index.html'),
   '404.html', 'sitemap.xml',
 ];
 const missingFiles = [];
@@ -24,8 +24,8 @@ const siteBase = process.env.NETLIFY === 'true'
   ? new URL('https://ahmedoubali.netlify.app/')
   : new URL('https://gpldroid.github.io/ahmedoubalie/');
 const expectedUrls = [
-  ...fixedRoutes.map((route) => new URL(route ? `${route}/` : '', siteBase).href),
-  ...books.map((book) => new URL(`books/${book.slug}/`, siteBase).href),
+  ...fixedRoutes.map((route) => new URL(route ? route + '/' : '', siteBase).href),
+  ...books.map((book) => new URL('books/' + book.slug + '/', siteBase).href),
 ];
 const sitemap = await readFile(resolve(dist, 'sitemap.xml'), 'utf8').catch(() => '');
 const actualUrls = new Set(sitemap.split('<loc>').slice(1).map((entry) => entry.split('</loc>')[0].replaceAll('&amp;', '&').trim()));
@@ -45,9 +45,9 @@ const htmlFiles = await walk(dist);
 const brokenLinks = [];
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
-  const hrefs = [...html.matchAll(/\\bhref=["']([^"'#][^"']*)["']/gi)].map((match) => match[1]);
+  const hrefs = [...html.matchAll(/\bhref=["']([^"'#][^"']*)["']/gi)].map((match) => match[1]);
   for (const href of hrefs) {
-    if (/^(https?:|mailto:|tel:|javascript:|data:|\\/\\/)/i.test(href)) continue;
+    if (/^(https?:|mailto:|tel:|javascript:|data:|\/\/)/i.test(href)) continue;
     let url;
     try { url = new URL(href, siteBase); } catch { continue; }
     if (url.origin !== siteBase.origin || !url.pathname.startsWith(siteBase.pathname)) continue;
@@ -55,7 +55,7 @@ for (const file of htmlFiles) {
     const target = resolve(dist, pathname || 'index.html');
     const candidate = !pathname ? target : (pathname.endsWith('/') || !extname(pathname) ? resolve(target, 'index.html') : target);
     try { await access(candidate); }
-    catch { brokenLinks.push(`${relative(dist, file)} -> ${href}`); }
+    catch { brokenLinks.push(relative(dist, file) + ' -> ' + href); }
   }
 }
 
@@ -66,4 +66,4 @@ if (missingFiles.length || missingUrls.length || brokenLinks.length) {
   if (brokenLinks.length) console.error('Enlaces internos sin destino:', brokenLinks);
   process.exit(1);
 }
-console.log(`Validación correcta: ${fixedRoutes.length} páginas fijas, ${books.length} fichas, ${htmlFiles.length} documentos HTML, sitemap y enlaces internos.`);
+console.log('Validación correcta: ' + fixedRoutes.length + ' páginas fijas, ' + books.length + ' fichas, ' + htmlFiles.length + ' documentos HTML, sitemap y enlaces internos.');
