@@ -1,0 +1,32 @@
+<section class="py-16 bg-gradient-to-r from-stone-900 via-stone-800 to-brand-900 text-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="inline-flex items-center gap-2 bg-brand-gold/20 border border-brand-gold/40 text-brand-gold text-xs px-3 py-1 rounded-full font-semibold">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Asistente Literario con Gemini IA
+            </div>
+            <h2 class="text-3xl font-serif font-bold">Generar Análisis del Perfil Intelectual</h2>
+            <p class="text-stone-300 text-sm max-w-2xl mx-auto">
+                Haz clic para obtener una síntesis en tiempo real del estilo narrativo noir, la investigación semiótica y la pedagogía del Profesor Ahmed Oubali.
+            </p>
+
+            <div class="pt-2">
+                <button onclick="generateAILiterarySummary()" id="ai-btn" class="px-8 py-3.5 rounded-full bg-brand-gold text-brand-900 font-bold hover:bg-yellow-400 transition shadow-lg inline-flex items-center gap-3">
+                    <i class="fa-solid fa-robot"></i> Generar Síntesis Literaria
+                </button>
+            </div>
+
+            <!-- AI Result Box -->
+            <div id="ai-response-box" class="hidden text-left bg-stone-900/90 border border-brand-gold/30 rounded-2xl p-6 mt-8 max-w-3xl mx-auto shadow-2xl relative">
+                <div class="flex items-center justify-between border-b border-stone-800 pb-3 mb-4">
+                    <span class="text-xs font-bold text-brand-gold uppercase tracking-widest flex items-center gap-2">
+                        <i class="fa-solid fa-brain"></i> Síntesis Intelectual Generada
+                    </span>
+                    <button onclick="document.getElementById('ai-response-box').classList.add('hidden')" class="text-stone-400 hover:text-white text-sm">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div id="ai-text-content" class="text-sm text-stone-200 leading-relaxed font-light space-y-3">
+                    <!-- Dynamic content filled here -->
+                </div>
+            </div>
+        </div>
+    </section>
