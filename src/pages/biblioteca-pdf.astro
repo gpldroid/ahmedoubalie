@@ -2,6 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PdfLibrarySection from '../components/PdfLibrarySection.astro';
 ---
-<BaseLayout title="Recursos y publicaciones | Ahmed Oubali" description="Consulta referencias de lectura y publicaciones de Ahmed Oubali.">
-  <main id="main-content"><header class="page-hero"><span class="section-eyebrow">Lectura y consulta</span><h1>Recursos y publicaciones</h1><p>Referencias de lectura, artículos y enlaces a las plataformas oficiales.</p></header><PdfLibrarySection /></main>
+<BaseLayout title="Recursos y publicaciones | Ahmed Oubali" description="Referencias de lectura, publicaciones y enlaces a los canales oficiales de Ahmed Oubali.">
+  <main id="main-content" class="editorial-page">
+    <header class="page-hero"><span class="section-eyebrow">Lectura y consulta</span><h1>Recursos y publicaciones</h1><p>Un punto de partida para localizar referencias, artículos y obras relacionadas con la actividad literaria y académica.</p></header>
+    <PdfLibrarySection />
+    <section class="resource-guide section-shell" aria-labelledby="resource-guide-title">
+      <header><span class="section-eyebrow">Cómo utilizar esta sección</span><h2 id="resource-guide-title">Localiza el material que buscas</h2></header>
+      <div class="resource-guide-grid">
+        <article><span>01</span><h3>Consulta las referencias</h3><p>Utiliza el buscador de la lista para localizar los títulos que aparecen en esta página.</p></article>
+        <article><span>02</span><h3>Visita el blog oficial</h3><p>Los enlaces externos conducen al blog para buscar allí las publicaciones y sus referencias.</p></article>
+        <article><span>03</span><h3>Explora los libros</h3><p>Para ediciones comerciales, consulta el <a href={import.meta.env.BASE_URL + 'books/'}>catálogo de libros</a> y abre la ficha de cada obra.</p></article>
+      </div>
+      <p class="resource-disclaimer">Esta biblioteca no aloja archivos PDF ni promete descargas directas. Solo se mostrarán enlaces de descarga cuando exista una dirección pública y verificada para el documento.</p>
+    </section>
+  </main>
 </BaseLayout>
+<style>
+.resource-guide{padding-block:3.5rem 5rem}.resource-guide>header{margin-bottom:1.5rem}.resource-guide h2{font:600 clamp(2rem,4vw,3rem)/1.15 'Playfair Display',Georgia,serif;margin:.5rem 0}.resource-guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.resource-guide-grid article{padding:1.5rem;border:1px solid var(--line);border-radius:1rem;background:var(--surface)}.resource-guide-grid article>span{color:var(--gold-deep);font-size:.7rem;font-weight:800}.resource-guide-grid h3{font:600 1.2rem 'Playfair Display',Georgia,serif}.resource-guide-grid p,.resource-disclaimer{color:var(--muted);font-size:.88rem;line-height:1.8}.resource-guide-grid a{color:var(--gold-deep);font-weight:700}.resource-disclaimer{margin-top:1.5rem;padding:1rem;border-left:3px solid var(--gold);background:var(--surface)}
+@media(max-width:700px){.resource-guide-grid{grid-template-columns:1fr}}
+</style>
