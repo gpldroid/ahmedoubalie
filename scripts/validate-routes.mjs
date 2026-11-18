@@ -32,20 +32,16 @@ const expectedUrls = [
   ...books.map((book) => new URL(`books/${book.slug}/`, siteBase).href),
 ];
 const actualUrls = new Set(
-  [...sitemap.matchAll(/<loc>(.*?)<\\/loc>/g)].map((match) =>
-    match[1].replaceAll('&amp;', '&').trim()
-  )
+  sitemap.split('<loc>').slice(1).map((entry) => entry.split('</loc>')[0].replaceAll('&amp;', '&').trim())
 );
 const missingUrls = expectedUrls.filter((url) => !actualUrls.has(url));
 
 if (missingFiles.length || missingUrls.length) {
   console.error('Falló la validación de rutas.');
-  if (missingFiles.length) {
-    console.error('Archivos no generados:\\n' + missingFiles.map((item) => `- dist/${item}`).join('\\n'));
-  }
+  if (missingFiles.length) console.error('Archivos no generados:', missingFiles);
   if (missingUrls.length) {
-    console.error('URLs ausentes del sitemap:\\n' + missingUrls.map((url) => `- ${url}`).join('\\n'));
-    console.error('Primeras URLs encontradas:\\n' + [...actualUrls].slice(0, 5).join('\\n'));
+    console.error('URLs ausentes del sitemap:', missingUrls);
+    console.error('Primeras URLs encontradas:', [...actualUrls].slice(0, 5));
   }
   process.exit(1);
 }
