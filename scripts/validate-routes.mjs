@@ -43,7 +43,7 @@ const htmlFiles = await walk(dist);
 const brokenLinks = [];
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
-  const hrefs = [...html.matchAll(/\\bhref=["']([^"'#][^"']*)["']/gi)].map((match) => match[1]);
+  const hrefs = [...html.matchAll(/\bhref=["']([^"'#][^"']*)["']/gi)].map((match) => match[1]);
   for (const href of hrefs) {
     if (/^(https?:|mailto:|tel:|javascript:|data:|\/\/)/i.test(href)) continue;
     let url;
