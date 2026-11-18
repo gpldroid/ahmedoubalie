@@ -61,16 +61,19 @@ import BookModal from '../components/BookModal.astro';
 
         // 4. PDF Search Logic
         function filterPDFs() {
-            const query = document.getElementById('pdf-search-input').value.toLowerCase();
+            const query = document.getElementById('pdf-search-input')?.value?.trim().toLowerCase() ?? '';
             const pdfItems = document.querySelectorAll('.pdf-item');
+            let visibleCount = 0;
             pdfItems.forEach(item => {
                 const title = item.querySelector('.pdf-title')?.textContent?.toLowerCase() ?? '';
                 if (title.includes(query)) {
                     item.style.display = 'flex';
+                    visibleCount += 1;
                 } else {
                     item.style.display = 'none';
                 }
             });
+            document.getElementById('pdf-empty-state')?.classList.toggle('hidden', visibleCount !== 0);
         }
 
         // Static site: no mail endpoint is configured, so never report a false success.
