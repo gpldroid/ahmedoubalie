@@ -2,7 +2,8 @@ import type { APIRoute } from 'astro';
 import books from '../data/books.json';
 const fixedRoutes = ['', 'sobre-mi/', 'idiomas/', 'publicaciones/', 'biblioteca-pdf/', 'books/', 'asistente-literario/', 'contacto/', 'aviso-legal/', 'politica-de-privacidad/', 'politica-de-cookies/', 'terminos-de-uso/'];
 export const GET: APIRoute = ({ site }) => {
-  const base = new URL(import.meta.env.BASE_URL, site ?? 'https://gpldroid.github.io');
+  const basePath = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  const base = new URL(basePath, site ?? 'https://gpldroid.github.io/');
   const routes = [...fixedRoutes, ...books.map((book) => `books/${book.slug}/`)];
   const urls = routes.map((route) => {
     const loc = new URL(route, base).toString();
