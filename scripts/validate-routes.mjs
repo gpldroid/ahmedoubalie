@@ -51,7 +51,7 @@ for (const file of htmlFiles) {
     if (url.origin !== siteBase.origin || !url.pathname.startsWith(siteBase.pathname)) continue;
     const pathname = decodeURIComponent(url.pathname.slice(siteBase.pathname.length));
     const target = resolve(dist, pathname || 'index.html');
-    const candidate = pathname.endsWith('/') || !extname(pathname) ? resolve(target, 'index.html') : target;
+    const candidate = !pathname ? target : (pathname.endsWith('/') || !extname(pathname) ? resolve(target, 'index.html') : target);
     try { await access(candidate); }
     catch { brokenLinks.push(`${relative(dist, file)} -> ${href}`); }
   }
