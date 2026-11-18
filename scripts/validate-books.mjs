@@ -1,12 +1,13 @@
 import { readFile } from 'node:fs/promises';
 
 const file = new URL('../src/data/books.json', import.meta.url);
-const books = JSON.parse(await readFile(file, 'utf8'));
+const catalog = JSON.parse(await readFile(file, 'utf8'));
+const books = catalog.books;
 const errors = [];
 const slugs = new Set();
 
 if (!Array.isArray(books) || books.length === 0) {
-  throw new Error('El catálogo debe ser un array no vacío.');
+  throw new Error('El catálogo debe contener un array "books" no vacío.');
 }
 
 for (const [index, book] of books.entries()) {
@@ -31,7 +32,7 @@ for (const [index, book] of books.entries()) {
 
   if (typeof book?.amazonUrl === 'string') {
     try {
-      const url = new URL(book.amazonUrl);
+      new URL(book.amazonUrl);
       if (!/^https:\/\/(?:[a-z0-9-]+\.)*amazon\.(?:com|es)(?:\/|$)/i.test(book.amazonUrl)) {
         errors.push(`${label}: el enlace debe ser HTTPS a dominio Amazon.com o Amazon.es.`);
       }

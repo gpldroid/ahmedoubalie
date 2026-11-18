@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: gpldroid/ahmedoubalie
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+site_url: https://ahmedoubali.netlify.app
+display_url: https://ahmedoubali.netlify.app
+logo_url: https://ahmedoubali.netlify.app/favicon.svg
+
+media_folder: public/uploads
+public_folder: /uploads
+
+publish_mode: simple
+
+collections:
+  - name: catalog
+    label: Catálogo
+    files:
+      - name: books
+        label: Libros y publicaciones
+        file: src/data/books.json
+        fields:
+          - label: Obras
+            name: books
+            widget: list
+            summary: "{{fields.title}} ({{fields.year}})"
+            fields:
+              - { label: Título, name: title, widget: string }
+              - { label: Slug, name: slug, widget: string, hint: "Identificador URL: minúsculas y guiones, sin espacios." }
+              - { label: Año, name: year, widget: number, value_type: int, min: 1400, max: 2200 }
+              - { label: Categoría, name: category, widget: string }
+              - { label: Descripción, name: description, widget: text }
+              - { label: ASIN, name: asin, widget: string }
+              - { label: Enlace Amazon, name: amazonUrl, widget: string }

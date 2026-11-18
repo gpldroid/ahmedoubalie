@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import books from '../data/books.json';
+import bookData from '../data/books.json';
 import Icon3D from '../components/Icon3D.astro';
+const books = bookData.books;
 const categories = [...new Set(books.map((book) => book.category))];
 ---
 <BaseLayout title="Publicaciones y libros | Ahmed Oubali" description="Catálogo de novelas, ensayos y estudios literarios de Ahmed Oubali.">

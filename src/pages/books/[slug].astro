@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import books from '../../data/books.json';
-export function getStaticPaths(){return books.map((book)=>({params:{slug:book.slug},props:{book}}));}
+import bookData from '../../data/books.json';
+export function getStaticPaths(){return bookData.books.map((book)=>({params:{slug:book.slug},props:{book}}));}
 const {book}=Astro.props;
 ---
 <BaseLayout title={book.title+' | Ahmed Oubali'} description={book.description}><main class="detail"><a class="back" href={import.meta.env.BASE_URL+'books/'}>← Volver al catálogo</a><article><div class="detail-cover"><span>Ahmed Oubali</span><strong>{book.title}</strong><small>{book.year}</small></div><div><p class="eyebrow">{book.category} · {book.year}</p><h1>{book.title}</h1><p class="description">{book.description}</p><p class="note">La disponibilidad, el formato y los datos de esta edición pueden variar según el marketplace de Amazon.</p><a class="amazon-button" href={book.amazonUrl} target="_blank" rel="noopener noreferrer">Consultar en Amazon ↗</a><p class="asin">Identificador de edición: {book.asin}</p></div></article></main></BaseLayout>

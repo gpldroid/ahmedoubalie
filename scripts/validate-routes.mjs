@@ -3,7 +3,9 @@ import { resolve, relative, extname } from 'node:path';
 
 const root = process.cwd();
 const dist = resolve(root, 'dist');
-const books = JSON.parse(await readFile(resolve(root, 'src/data/books.json'), 'utf8'));
+const catalog = JSON.parse(await readFile(resolve(root, 'src/data/books.json'), 'utf8'));
+const books = catalog.books;
+if (!Array.isArray(books)) throw new Error('El catálogo debe contener un array "books".');
 const fixedRoutes = [
   '', 'sobre-mi', 'idiomas', 'publicaciones', 'biblioteca-pdf', 'books',
   'asistente-literario', 'contacto', 'aviso-legal', 'politica-de-privacidad',
