@@ -546,3 +546,36 @@ p,li{overflow-wrap:anywhere}
 @media (max-width: 680px) {
   .mobile-menu { padding-inline:1rem; }
 }
+
+
+/* WCAG AA contrast pass: readable text and visible icon controls */
+:root {
+  --ink-soft: #4b4943;
+  --muted: #59564f;
+  --gold-deep: #765722;
+  --crimson: #7f4037;
+}
+.portrait-topline,
+.portrait-index,
+.portrait-caption p { color: #59564f; }
+.site-footer small,
+.site-footer .footer-copy { color: #b5afa3; }
+
+/* Decorative publication artwork must not carry low-contrast labels/icons */
+.work-art { color: #765722; }
+
+/* Ensure link and form hint text uses the stronger muted token */
+.nav-links > a,
+.mobile-menu > a,
+.section-heading > p,
+.section-heading--split > p,
+.catalog-head p:not(.eyebrow),
+.detail .note,
+.detail .asin { color: var(--muted); }
+
+::placeholder { color: #59564f; opacity: 1; }
+input::placeholder, textarea::placeholder { color: #59564f; opacity: 1; }
+
+@media (forced-colors: active) {
+  a, button, input, select, textarea { forced-color-adjust: auto; }
+}
