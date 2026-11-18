@@ -446,3 +446,49 @@ p,li{overflow-wrap:anywhere}
 .publication-disclaimer{margin-top:1.2rem;color:var(--muted);font-size:.72rem;text-align:center}
 @media(max-width:680px){.feature-card,.language-card{padding:1.2rem}.language-card{min-height:14rem}.editorial-card-top{margin-bottom:1rem}}
 @media(prefers-reduced-motion:reduce){.feature-card,.language-card{transition:none}}
+
+
+/* Consistent editorial card language across every standalone page */
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:.55rem .7rem;margin:1.35rem 0 1.1rem}
+.footer-nav a{padding:.45rem .75rem;border:1px solid #ffffff22;border-radius:999px;color:#eee4d1;font-size:.72rem;text-decoration:none;transition:background .2s ease,border-color .2s ease}
+.footer-nav a:hover{background:#ffffff12;border-color:#c5a36a}
+.nav-links a[aria-current="page"],.mobile-menu a[aria-current="page"]{color:var(--gold-deep);font-weight:800}
+.nav-links .contact-link[aria-current="page"]{color:#f7f1e5;background:var(--gold-deep)}
+.editorial-extra-grid article,.method-grid article,.resource-guide-grid article,.theme-grid article{
+  position:relative;display:flex;flex-direction:column;min-width:0;height:100%;padding:clamp(1.25rem,2.5vw,1.8rem);
+  overflow:hidden;border:1px solid var(--line);border-radius:var(--radius-card);
+  background:linear-gradient(150deg,var(--surface),#f8f5ee);
+  box-shadow:0 12px 32px rgba(35,40,50,.06),inset 0 1px #fff;
+  transition:transform .22s ease,box-shadow .22s ease
+}
+.editorial-extra-grid article:hover,.method-grid article:hover,.resource-guide-grid article:hover,.theme-grid article:hover{
+  transform:translateY(-4px);box-shadow:0 20px 40px rgba(35,40,50,.11),inset 0 1px #fff
+}
+.editorial-extra-grid article>span,.method-grid article>span,.resource-guide-grid article>span,.theme-grid article>span{
+  display:inline-flex;align-self:flex-start;margin-bottom:.8rem;padding:.28rem .55rem;border:1px solid #d9c9aa;border-radius:999px;
+  background:#f5efe3;color:var(--gold-deep);font-size:.63rem;font-weight:800;letter-spacing:.1em
+}
+.editorial-extra-grid h3,.method-grid h3,.resource-guide-grid h3,.theme-grid h3{margin:.1rem 0 .55rem}
+.editorial-extra-grid p,.method-grid p,.resource-guide-grid p,.theme-grid p{margin:0;line-height:1.75}
+.editorial-extra-grid,.method-grid,.resource-guide-grid,.theme-grid{align-items:stretch}
+.catalog-intro{padding:clamp(1.3rem,3vw,2rem);border:1px solid var(--line);border-radius:var(--radius-card);background:linear-gradient(150deg,var(--surface),#f8f5ee);box-shadow:0 12px 32px rgba(35,40,50,.06),inset 0 1px #fff}
+.contact-information>div:first-child,.contact-information>ul{
+  min-width:0;margin:0;padding:clamp(1.25rem,2.5vw,1.8rem);list-style-position:inside;
+  border:1px solid var(--line);border-radius:var(--radius-card);
+  background:linear-gradient(150deg,var(--surface),#f8f5ee);box-shadow:0 12px 32px rgba(35,40,50,.06),inset 0 1px #fff
+}
+.contact-information>ul{padding-left:1.5rem}
+.contact-information .contact-caution{padding:1rem 1.2rem;border:1px solid #d9c9aa;border-left:4px solid var(--gold);border-radius:.8rem;background:#f8f0df}
+.legal-content h2{margin:1.5rem 0 0;padding:1.1rem 1.2rem .25rem;border:1px solid var(--line);border-bottom:0;border-radius:.9rem .9rem 0 0;background:linear-gradient(150deg,var(--surface),#f8f5ee);font-size:1.25rem}
+.legal-content h2+p{margin:0;padding:.25rem 1.2rem 1.15rem;border:1px solid var(--line);border-top:0;border-radius:0 0 .9rem .9rem;background:var(--surface);font-size:.88rem}
+.detail article>div:last-child{padding:clamp(1.3rem,3vw,2rem);border:1px solid var(--line);border-radius:var(--radius-card);background:linear-gradient(150deg,var(--surface),#f8f5ee);box-shadow:0 12px 32px rgba(35,40,50,.06),inset 0 1px #fff}
+.catalog-head{padding:clamp(1.3rem,3vw,2rem);border:1px solid var(--line);border-radius:var(--radius-card);background:linear-gradient(150deg,var(--surface),#f8f5ee);box-shadow:0 12px 32px rgba(35,40,50,.06),inset 0 1px #fff}
+@media(max-width:700px){
+ .footer-nav{gap:.45rem}
+ .footer-nav a{font-size:.68rem}
+ .editorial-extra-grid article,.method-grid article,.resource-guide-grid article,.theme-grid article{padding:1.2rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .editorial-extra-grid article,.method-grid article,.resource-guide-grid article,.theme-grid article,.footer-nav a{transition:none}
+ .editorial-extra-grid article:hover,.method-grid article:hover,.resource-guide-grid article:hover,.theme-grid article:hover{transform:none}
+}
