@@ -1,5 +1,6 @@
 ---
 import Icon3D from './Icon3D.astro';
+const root = import.meta.env.BASE_URL;
 ---
 <section id="works" class="site-section works-section">
   <div class="section-shell">
@@ -14,18 +15,18 @@ import Icon3D from './Icon3D.astro';
     </header>
     <div class="publication-grid" id="works-grid">
       <article class="publication-card work-card" data-category="misterio">
-        <div class="publication-cover cover-noir" role="img" aria-label="Composición gráfica editorial de Chivos expiatorios"><span class="cover-overline">Ahmed Oubali · Narrativa</span><strong>CHIVOS<br/>EXPIATORIOS</strong><span class="cover-rule"></span><small>NOVELA NEGRA</small><span class="cover-note">Diseño gráfico ilustrativo</span></div>
+        <img class="publication-cover cover-noir" src={root + 'images/cover-chivos.svg'} alt="Cubierta editorial ilustrativa de Chivos expiatorios" width="720" height="900" loading="lazy" decoding="async" />
         <div class="publication-copy"><span class="publication-type">Novela · 2014</span><h3>Chivos expiatorios</h3><p>Relatos de intriga ambientados entre Marruecos y España, con tramas de crimen, ambición y pasiones humanas.</p><div class="publication-actions"><button type="button" data-book-open data-title="Chivos expiatorios" data-description="Once relatos breves de intriga ambientados entre Marruecos y España, con tramas de crimen, ambición y pasiones humanas." data-category="Novela negra">Ver detalles <Icon3D name="arrow" /></button><a href="https://www.amazon.es/CHIVOS-EXPIATORIOS-Ahmed-Oubali/dp/1688050124" target="_blank" rel="noopener noreferrer">Consultar edición <Icon3D name="external" /></a></div></div>
       </article>
       <article class="publication-card work-card" data-category="misterio">
-        <div class="publication-cover cover-shadow" role="img" aria-label="Composición gráfica editorial de Narcolepsia"><span class="cover-overline">Ahmed Oubali · Narrativa</span><strong>NARCO<br/>LEPSIA</strong><span class="cover-rule"></span><small>CUATRO RELATOS NOIR</small><span class="cover-note">Diseño gráfico ilustrativo</span></div>
+        <img class="publication-cover cover-shadow" src={root + 'images/cover-narcolepsia.svg'} alt="Cubierta editorial ilustrativa de Narcolepsia" width="720" height="900" loading="lazy" decoding="async" />
         <div class="publication-copy"><span class="publication-type">Novela negra · 2022</span><h3>Narcolepsia</h3><p>Cuatro relatos noir atravesados por el dinero, la intriga y los misterios de la vida nocturna.</p><div class="publication-actions"><button type="button" data-book-open data-title="Narcolepsia" data-description="Cuatro relatos noir atravesados por el dinero, el suspense y la maldad: intrigas nocturnas, persecuciones y misterios." data-category="Novela negra">Ver detalles <Icon3D name="arrow" /></button><a href="https://www.amazon.es/NARCOLEPSIA-AHMED-OUBALI/dp/B09QP6QN3X" target="_blank" rel="noopener noreferrer">Consultar edición <Icon3D name="external" /></a></div></div>
       </article>
       <article class="publication-card work-card" data-category="ensayo">
-        <div class="publication-cover cover-semiotic" role="img" aria-label="Composición gráfica editorial de La danza de los signos"><span class="cover-overline">Ahmed Oubali · Investigación</span><strong>LA DANZA<br/>DE LOS<br/>SIGNOS</strong><span class="cover-rule"></span><small>ESTUDIO SEMIÓTICO</small><span class="cover-note">Diseño gráfico ilustrativo</span></div>
+        <img class="publication-cover cover-semiotic" src={root + 'images/cover-danza-signos.svg'} alt="Cubierta editorial ilustrativa de La danza de los signos" width="720" height="900" loading="lazy" decoding="async" />
         <div class="publication-copy"><span class="publication-type">Semiótica · 2020</span><h3>La danza de los signos</h3><p>Estudio de autores marroquíes que escriben en español y de sus universos culturales y literarios.</p><div class="publication-actions"><button type="button" data-book-open data-title="La danza de los signos en la literatura marroquí en lengua española" data-description="Estudio semiótico de obras de autores marroquíes que escriben en español, entre ellos Mohamed Sibari, Mohamed Chakor y Ahmed Daoudi." data-category="Semiótica">Ver detalles <Icon3D name="arrow" /></button><a href="https://www.amazon.com/-/es/Ahmed-Oubali-ebook/dp/B08L1CJDJ8" target="_blank" rel="noopener noreferrer">Consultar edición <Icon3D name="external" /></a></div></div>
       </article>
     </div>
-    <p class="publication-disclaimer">Las composiciones mostradas son recursos gráficos de presentación y no reproducciones de las portadas originales.</p>
+    <p class="publication-disclaimer">Las cubiertas son ilustraciones editoriales creadas para esta web y no reproducciones de las portadas originales.</p>
   </div>
 </section>
