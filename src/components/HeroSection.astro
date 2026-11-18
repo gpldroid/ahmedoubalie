@@ -1,6 +1,6 @@
 ---
 import Icon3D from './Icon3D.astro';
-const root = import.meta.env.BASE_URL;
+const root = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
 <section class="editorial-hero">
   <div class="editorial-hero-inner">
@@ -11,7 +11,7 @@ const root = import.meta.env.BASE_URL;
       <p class="hero-intro">Bienvenido al espacio oficial del Profesor Ahmed Oubali. Novela negra, semiótica, narrativa histórica y docencia de cinco lenguas: un recorrido intelectual abierto a lectores e investigadores.</p>
       <div class="hero-actions">
         <a class="button-primary" href={root + 'publicaciones/'}>Explorar publicaciones <Icon3D name="arrow" /></a>
-        <a class="button-text" href={root + 'biblioteca-pdf/'}>Consultar biblioteca PDF <Icon3D name="book" /></a>
+        <a class="button-text" href={root + 'books/'}>Consultar libros en Amazon <Icon3D name="book" /></a>
       </div>
       <div class="hero-facts" aria-label="Datos destacados">
         <div><strong>05</strong><span>Idiomas impartidos</span></div>
