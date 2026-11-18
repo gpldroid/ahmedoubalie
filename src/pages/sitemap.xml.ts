@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+export const prerender = true;
 import books from '../data/books.json';
 const fixedRoutes = ['', 'sobre-mi/', 'idiomas/', 'publicaciones/', 'biblioteca-pdf/', 'books/', 'asistente-literario/', 'contacto/', 'aviso-legal/', 'politica-de-privacidad/', 'politica-de-cookies/', 'terminos-de-uso/'];
 export const GET: APIRoute = ({ site }) => {
