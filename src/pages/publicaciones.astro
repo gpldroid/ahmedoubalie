@@ -2,12 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import books from '../data/books.json';
 import Icon3D from '../components/Icon3D.astro';
+const categories = [...new Set(books.map((book) => book.category))];
 ---
-<BaseLayout title="Publicaciones y libros | Ahmed Oubali" description="Catálogo de novelas, ensayos y estudios literarios publicados por Ahmed Oubali.">
+<BaseLayout title="Publicaciones y libros | Ahmed Oubali" description="Catálogo de novelas, ensayos y estudios literarios de Ahmed Oubali.">
   <main id="main-content" class="catalog-page">
-    <header class="page-hero"><span class="section-eyebrow">Bibliografía</span><h1>Publicaciones y libros</h1><p>Novela negra, semiótica, narratología y crítica literaria. Explora las obras y consulta sus fichas.</p></header>
-    <section class="section-shell publication-catalog" aria-label="Catálogo de publicaciones">
+    <header class="page-hero"><span class="section-eyebrow">Bibliografía</span><h1>Publicaciones y libros</h1><p>Novela negra, semiótica, narratología y crítica literaria. Explora las obras y consulta sus fichas individuales.</p></header>
+    <section class="catalog-intro section-shell" aria-label="Presentación del catálogo">
+      <div><span class="section-eyebrow">Explorar la bibliografía</span><h2>Obras narrativas y estudios</h2><p>El catálogo reúne las publicaciones registradas en el proyecto. Cada ficha ofrece una descripción breve y un enlace para consultar la edición correspondiente.</p></div>
+      <div class="catalog-stats"><strong>{books.length}</strong><span>obras catalogadas</span><strong>{categories.length}</strong><span>áreas temáticas</span></div>
+    </section>
+    <section class="section-shell publication-catalog" aria-label="Catálogo completo de publicaciones">
       <div class="book-grid">{books.map((book)=><article class="book-card publication-book"><div class="cover"><span>Ahmed Oubali</span><strong>{book.title}</strong><small>{book.year}</small></div><div class="book-info"><span class="publication-type">{book.category} · {book.year}</span><h2>{book.title}</h2><p>{book.description}</p><a class="more" href={import.meta.env.BASE_URL+'books/'+book.slug+'/'}>Abrir ficha <Icon3D name="arrow" /></a></div></article>)}</div>
     </section>
+    <p class="catalog-footnote section-shell">Los datos bibliográficos se muestran según el catálogo del sitio. La disponibilidad, el formato y los detalles comerciales deben comprobarse en la página de cada edición.</p>
   </main>
 </BaseLayout>
+<style>
+.catalog-intro{display:flex;justify-content:space-between;align-items:center;gap:2rem;padding-block:2.5rem}.catalog-intro>div:first-child{max-width:48rem}.catalog-intro h2{font:600 clamp(1.8rem,3.5vw,2.6rem)/1.15 'Playfair Display',Georgia,serif;margin:.4rem 0}.catalog-intro p,.catalog-footnote{color:var(--muted);font-size:.9rem;line-height:1.8}.catalog-stats{display:grid;grid-template-columns:auto auto;gap:.1rem .7rem;align-items:baseline;min-width:10rem;padding:1.2rem;border:1px solid var(--line);border-radius:.9rem;background:var(--surface)}.catalog-stats strong{font:600 1.6rem 'Playfair Display',Georgia,serif;color:var(--gold-deep)}.catalog-stats span{font-size:.72rem;color:var(--muted)}.catalog-footnote{padding-bottom:3rem}
+@media(max-width:650px){.catalog-intro{align-items:stretch;flex-direction:column}.catalog-stats{width:max-content}}
+</style>
