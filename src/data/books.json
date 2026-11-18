@@ -1,101 +1,15 @@
-[
-  {
-    "slug": "chivos-expiatorios",
-    "title": "Chivos expiatorios",
-    "year": 2014,
-    "asin": "B07WV8889N",
-    "category": "Novela negra",
-    "description": "Once relatos breves de intriga ambientados entre Marruecos y España, con tramas de crimen, ambición y pasiones humanas.",
-    "amazonUrl": "https://www.amazon.es/CHIVOS-EXPIATORIOS-Ahmed-Oubali/dp/1688050124"
-  },
-  {
-    "slug": "perfidia-de-aspid",
-    "title": "Perfidia de Áspid",
-    "year": 2019,
-    "asin": "B07W8G9LGQ",
-    "category": "Novela",
-    "description": "Siete relatos de género negro que combinan suspense, humor, erotismo y romance, ambientados en ciudades de Marruecos y España.",
-    "amazonUrl": "https://www.amazon.es/PERFIDIA-%C3%81SPID-Ahmed-Oubali-ebook/dp/B07W8G9LGQ"
-  },
-  {
-    "slug": "narcolepsia",
-    "title": "Narcolepsia",
-    "year": 2022,
-    "asin": "B09QP6QN3X",
-    "category": "Novela negra",
-    "description": "Cuatro relatos noir atravesados por el dinero, el erotismo y la maldad: intrigas nocturnas, persecuciones y misterios.",
-    "amazonUrl": "https://www.amazon.es/NARCOLEPSIA-AHMED-OUBALI/dp/B09QP6QN3X"
-  },
-  {
-    "slug": "tetrica-mente",
-    "title": "Tétrica mente",
-    "year": 2024,
-    "asin": "B0CRP62F8D",
-    "category": "Narrativa",
-    "description": "Obra de Ahmed Oubali. Consulta la ficha de Amazon para verificar los detalles de esta edición.",
-    "amazonUrl": "https://www.amazon.es/T%C3%89TRICA-MENTE-Sr-AHMED-OUBALI/dp/B0CRP62F8D"
-  },
-  {
-    "slug": "tanger-en-la-novela-policial",
-    "title": "Tánger en la novela policial",
-    "year": 2026,
-    "asin": "B0GRP9Y5F5",
-    "category": "Estudio literario",
-    "description": "Estudio sobre la presencia de Tánger en la novela policial. Consulta Amazon para detalles de publicación.",
-    "amazonUrl": "https://www.amazon.com/dp/B0GRP9Y5F5"
-  },
-  {
-    "slug": "detectives-no-humanos",
-    "title": "Detectives no humanos",
-    "year": 2026,
-    "asin": "B0HHFKF4RH",
-    "category": "Estudio literario",
-    "description": "Obra de Ahmed Oubali. Consulta la ficha de Amazon para información de edición.",
-    "amazonUrl": "https://www.amazon.com/dp/B0HHFKF4RH"
-  },
-  {
-    "slug": "la-danza-de-los-signos",
-    "title": "La danza de los signos en la literatura marroquí en lengua española",
-    "year": 2020,
-    "asin": "B08L1CJDJ8",
-    "category": "Semiótica",
-    "description": "Estudio semiótico de obras de autores marroquíes que escriben en español, entre ellos Mohamed Sibari, Mohamed Chakor y Ahmed Daoudi.",
-    "amazonUrl": "https://www.amazon.com/-/es/Ahmed-Oubali-ebook/dp/B08L1CJDJ8"
-  },
-  {
-    "slug": "iniciacion-al-analisis-semiotico",
-    "title": "Iniciación al análisis semiótico de textos",
-    "year": 2023,
-    "asin": "B0CBD5KW4G",
-    "category": "Semiótica",
-    "description": "Introducción al análisis semiótico de textos.",
-    "amazonUrl": "https://www.amazon.com/dp/B0CBD5KW4G"
-  },
-  {
-    "slug": "identidades-opresivas",
-    "title": "Identidades opresivas: de líquidas a liquidadas",
-    "year": 2025,
-    "asin": "B0FP2WMW78",
-    "category": "Ensayo",
-    "description": "Ensayo de Ahmed Oubali sobre identidad y sus transformaciones.",
-    "amazonUrl": "https://www.amazon.com/dp/B0FP2WMW78"
-  },
-  {
-    "slug": "el-arte-de-matar-con-palabras",
-    "title": "El arte de matar con palabras: narratología de la mente asesina",
-    "year": 2025,
-    "asin": "B0F98PQZLN",
-    "category": "Narratología",
-    "description": "Estudio narratológico de la representación de la mente asesina.",
-    "amazonUrl": "https://www.amazon.com/dp/B0F98PQZLN"
-  },
-  {
-    "slug": "configuracion-aliteraria-del-yo",
-    "title": "Configuración aliteraria del Yo en la poesía de A. Tarancón, A. Aziz y José Sarria",
-    "year": 2025,
-    "asin": "B0F94W8Q7G",
-    "category": "Crítica literaria",
-    "description": "Estudio crítico sobre la configuración del yo en la poesía de los autores citados.",
-    "amazonUrl": "https://www.amazon.com/-/es/AHMED-OUBALI-ebook/dp/B0F94W8Q7G"
-  }
-]
+{
+  "books": [
+    {"slug":"chivos-expiatorios","title":"Chivos expiatorios","year":2014,"asin":"B07WV8889N","category":"Novela negra","description":"Once relatos breves de intriga ambientados entre Marruecos y España, con tramas de crimen, ambición y pasiones humanas.","amazonUrl":"https://www.amazon.es/CHIVOS-EXPIATORIOS-Ahmed-Oubali/dp/1688050124"},
+    {"slug":"perfidia-de-aspid","title":"Perfidia de Áspid","year":2019,"asin":"B07W8G9LGQ","category":"Novela","description":"Siete relatos de género negro que combinan suspense, humor, erotismo y romance, ambientados en ciudades de Marruecos y España.","amazonUrl":"https://www.amazon.es/PERFIDIA-%C3%81SPID-Ahmed-Oubali-ebook/dp/B07W8G9LGQ"},
+    {"slug":"narcolepsia","title":"Narcolepsia","year":2022,"asin":"B09QP6QN3X","category":"Novela negra","description":"Cuatro relatos noir atravesados por el dinero, el erotismo y la maldad: intrigas nocturnas, persecuciones y misterios.","amazonUrl":"https://www.amazon.es/NARCOLEPSIA-AHMED-OUBALI/dp/B09QP6QN3X"},
+    {"slug":"tetrica-mente","title":"Tétrica mente","year":2024,"asin":"B0CRP62F8D","category":"Narrativa","description":"Obra de Ahmed Oubali. Consulta la ficha de Amazon para verificar los detalles de esta edición.","amazonUrl":"https://www.amazon.es/T%C3%89TRICA-MENTE-Sr-AHMED-OUBALI/dp/B0CRP62F8D"},
+    {"slug":"tanger-en-la-novela-policial","title":"Tánger en la novela policial","year":2026,"asin":"B0GRP9Y5F5","category":"Estudio literario","description":"Estudio sobre la presencia de Tánger en la novela policial. Consulta Amazon para detalles de publicación.","amazonUrl":"https://www.amazon.com/dp/B0GRP9Y5F5"},
+    {"slug":"detectives-no-humanos","title":"Detectives no humanos","year":2026,"asin":"B0HHFKF4RH","category":"Estudio literario","description":"Obra de Ahmed Oubali. Consulta la ficha de Amazon para información de edición.","amazonUrl":"https://www.amazon.com/dp/B0HHFKF4RH"},
+    {"slug":"la-danza-de-los-signos","title":"La danza de los signos en la literatura marroquí en lengua española","year":2020,"asin":"B08L1CJDJ8","category":"Semiótica","description":"Estudio semiótico de obras de autores marroquíes que escriben en español, entre ellos Mohamed Sibari, Mohamed Chakor y Ahmed Daoudi.","amazonUrl":"https://www.amazon.com/-/es/Ahmed-Oubali-ebook/dp/B08L1CJDJ8"},
+    {"slug":"iniciacion-al-analisis-semiotico","title":"Iniciación al análisis semiótico de textos","year":2023,"asin":"B0CBD5KW4G","category":"Semiótica","description":"Introducción al análisis semiótico de textos.","amazonUrl":"https://www.amazon.com/dp/B0CBD5KW4G"},
+    {"slug":"identidades-opresivas","title":"Identidades opresivas: de líquidas a liquidadas","year":2025,"asin":"B0FP2WMW78","category":"Ensayo","description":"Ensayo de Ahmed Oubali sobre identidad y sus transformaciones.","amazonUrl":"https://www.amazon.com/dp/B0FP2WMW78"},
+    {"slug":"el-arte-de-matar-con-palabras","title":"El arte de matar con palabras: narratología de la mente asesina","year":2025,"asin":"B0F98PQZLN","category":"Narratología","description":"Estudio narratológico de la representación de la mente asesina.","amazonUrl":"https://www.amazon.com/dp/B0F98PQZLN"},
+    {"slug":"configuracion-aliteraria-del-yo","title":"Configuración aliteraria del Yo en la poesía de A. Tarancón, A. Aziz y José Sarria","year":2025,"asin":"B0F94W8Q7G","category":"Crítica literaria","description":"Estudio crítico sobre la configuración del yo en la poesía de los autores citados.","amazonUrl":"https://www.amazon.com/-/es/AHMED-OUBALI-ebook/dp/B0F94W8Q7G"}
+  ]
+}
