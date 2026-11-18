@@ -1,3 +1,6 @@
+---
+import Icon3D from './Icon3D.astro';
+---
 <section id="about" class="site-section about-section">
   <div class="section-shell">
     <header class="section-heading section-heading--center">
@@ -6,9 +9,18 @@
       <p>Catedrático, crítico semiótico y novelista hispanista marroquí. Su trabajo reúne la narrativa policiaca, el estudio filológico, la docencia de idiomas y la investigación literaria comparada.</p>
     </header>
     <div class="feature-grid">
-      <article class="feature-card"><span class="feature-icon" aria-hidden="true">01</span><h3>Docencia políglota</h3><p>Enseñanza y formación lingüística en español, francés, inglés, alemán y árabe.</p></article>
-      <article class="feature-card"><span class="feature-icon" aria-hidden="true">02</span><h3>Narrativa noir</h3><p>Novelas y relatos de intriga que exploran el misterio, la psicología y las relaciones humanas.</p></article>
-      <article class="feature-card"><span class="feature-icon" aria-hidden="true">03</span><h3>Semiótica y crítica</h3><p>Investigación sobre los signos culturales, la literatura marroquí en español y el análisis textual.</p></article>
+      <article class="feature-card">
+        <div class="editorial-card-top"><span class="feature-icon"><Icon3D name="globe" /></span><span class="editorial-card-index">01 / DOCENCIA</span></div>
+        <div class="editorial-card-copy"><h3>Docencia políglota</h3><p>Enseñanza y formación lingüística en español, francés, inglés, alemán y árabe.</p></div>
+      </article>
+      <article class="feature-card">
+        <div class="editorial-card-top"><span class="feature-icon"><Icon3D name="book" /></span><span class="editorial-card-index">02 / NARRATIVA</span></div>
+        <div class="editorial-card-copy"><h3>Narrativa noir</h3><p>Novelas y relatos de intriga que exploran el misterio, la psicología y las relaciones humanas.</p></div>
+      </article>
+      <article class="feature-card">
+        <div class="editorial-card-top"><span class="feature-icon"><Icon3D name="sparkle" /></span><span class="editorial-card-index">03 / INVESTIGACIÓN</span></div>
+        <div class="editorial-card-copy"><h3>Semiótica y crítica</h3><p>Investigación sobre los signos culturales, la literatura marroquí en español y el análisis textual.</p></div>
+      </article>
     </div>
   </div>
 </section>
