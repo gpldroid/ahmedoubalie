@@ -36,16 +36,32 @@ import BookModal from '../components/BookModal.astro';
 
     <script is:inline>
 // Book modal controls
+        let lastFocusedElement = null;
         function openBookModal(title, description, category) {
+            const modal = document.getElementById('book-modal');
+            if (!modal) return;
+            lastFocusedElement = document.activeElement;
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-description').textContent = description;
             document.getElementById('modal-category').textContent = category.toUpperCase();
-            document.getElementById('book-modal').classList.remove('hidden');
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            modal.querySelector('button')?.focus();
         }
 
         function closeBookModal() {
-            document.getElementById('book-modal').classList.add('hidden');
+            const modal = document.getElementById('book-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            modal.setAttribute('aria-hidden', 'true');
+            lastFocusedElement?.focus?.();
         }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && document.getElementById('book-modal')?.getAttribute('aria-hidden') === 'false') {
+                closeBookModal();
+            }
+        });
 
         // 3. Work Category Filter Logic
         function filterWorks(category) {
