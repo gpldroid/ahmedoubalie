@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900">
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#30394a"/><stop offset=".58" stop-color="#151d2b"/><stop offset="1" stop-color="#0e131d"/></linearGradient><radialGradient id="moon"><stop stop-color="#e8d8b8" stop-opacity=".85"/><stop offset="1" stop-color="#c5a36a" stop-opacity="0"/></radialGradient></defs>
+<rect width="720" height="900" fill="url(#bg)"/><circle cx="510" cy="310" r="250" fill="url(#moon)"/><circle cx="510" cy="310" r="118" fill="none" stroke="#e6d5b2" stroke-opacity=".55" stroke-width="2"/>
+<path d="M0 640 170 490l110 100 145-210 295 260v260H0z" fill="#111722"/><path d="M0 720 210 565l120 95 170-150 220 180" fill="none" stroke="#c5a36a" stroke-opacity=".5" stroke-width="3"/>
+<g fill="#f4ead6"><text x="62" y="92" font-family="Georgia,serif" font-size="24" letter-spacing="5">AHMED OUBALI</text><text x="62" y="620" font-family="Georgia,serif" font-size="112" letter-spacing="3">NARCO</text><text x="62" y="735" font-family="Georgia,serif" font-size="112" letter-spacing="3">LEPSIA</text></g>
+<path d="M62 775h220" stroke="#c5a36a" stroke-width="5"/><text x="62" y="830" fill="#d9c49e" font-family="Arial,sans-serif" font-size="22" letter-spacing="5">CUATRO RELATOS NOIR</text><text x="62" y="870" fill="#aeb5c0" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">COMPOSICIÓN EDITORIAL ILUSTRATIVA</text>
+</svg>
