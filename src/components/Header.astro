@@ -12,7 +12,7 @@ const links = [
   { label: 'Espacio literario', href: root + 'asistente-literario/', key: 'asistente-literario' },
   { label: 'Contacto', href: root + 'contacto/', key: 'contacto', contact: true }
 ];
-const path = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^\\/+|\\/+$/g, '');
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^\/+|\/+$/g, '');
 ---
 <nav class="site-nav" aria-label="Navegación principal">
   <div class="nav-inner">
