@@ -32,7 +32,7 @@ for (const [index, book] of books.entries()) {
   if (typeof book?.amazonUrl === 'string') {
     try {
       const url = new URL(book.amazonUrl);
-      if (url.protocol !== 'https:' || !(url.hostname === 'amazon.com' || url.hostname.endsWith('.amazon.com') || url.hostname === 'amazon.es' || url.hostname.endsWith('.amazon.es'))) {
+      if (!/^https:\/\/(?:[a-z0-9-]+\.)*amazon\.(?:com|es)(?:\/|$)/i.test(book.amazonUrl)) {
         errors.push(`${label}: el enlace debe ser HTTPS a dominio Amazon.com o Amazon.es.`);
       }
     } catch {
