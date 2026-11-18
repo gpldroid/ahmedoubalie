@@ -22,6 +22,7 @@ Astro mostrará la dirección local, normalmente `http://localhost:4321/ahmedoub
 
 ```bash
 npm install
+npm run check:data
 npm run build
 npm run preview
 ```
@@ -46,8 +47,9 @@ En GitHub, la fuente de publicación de Pages debe estar configurada como **GitH
 ├── .github/workflows/deploy.yml  # Construcción y despliegue automático
 ├── public/
 │   └── .nojekyll                 # Evita que Jekyll omita carpetas como _astro
+├── scripts/validate-books.mjs   # Validación automática del catálogo
 ├── src/
-│   ├── components/               # Header, Footer e iconos sociales
+│   ├── components/               # Secciones, Header, Footer, modal e iconos sociales
 │   ├── data/
 │   │   ├── books.json            # Catálogo editorial
 │   │   └── social-links.json     # Enlaces sociales centralizados
@@ -66,7 +68,7 @@ En GitHub, la fuente de publicación de Pages debe estar configurada como **GitH
 
 ## Catálogo de libros
 
-El catálogo se mantiene manualmente en `src/data/books.json`. Cada entrada contiene, según corresponda:
+El catálogo se mantiene manualmente en `src/data/books.json`. El comando `npm run check:data` comprueba los campos obligatorios, la unicidad de los slugs, el formato de los identificadores, los años y que los enlaces usen HTTPS en Amazon.com o Amazon.es. Cada entrada contiene, según corresponda:
 
 - `slug`: identificador URL de la página del libro.
 - `title`, `year`, `category`: datos editoriales.
@@ -75,7 +77,7 @@ El catálogo se mantiene manualmente en `src/data/books.json`. Cada entrada cont
 
 Para añadir una obra, comprueba primero que la edición tiene una ficha de producto real en Amazon, añade una entrada con un `slug` único y una URL exacta de producto, y vuelve a ejecutar `npm run build`. No se alojan PDF ni se promete descarga directa desde Amazon.
 
-Las cubiertas tipográficas que se muestran en el catálogo son marcadores visuales, no fotografías de las cubiertas editoriales. Sustitúyelas por imágenes autorizadas cuando estén disponibles.
+Las cubiertas tipográficas que se muestran en el catálogo son marcadores visuales, no fotografías de las cubiertas editoriales. La biblioteca PDF enlaza al blog oficial para consultar publicaciones; no afirma que cada enlace sea un archivo PDF descargable directo. El formulario de contacto no envía mensajes hasta que se configure un servicio de recepción. La síntesis literaria de la página es editorial y estática, no una integración activa con Gemini. Sustitúyelas por imágenes autorizadas cuando estén disponibles.
 
 ## Enlaces sociales
 
