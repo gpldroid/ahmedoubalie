@@ -8,7 +8,7 @@ const authorStore = 'https://www.amazon.com/Books-Ahmed-Oubali/s?rh=n%3A283155%2
   <main class="catalog">
     <header class="catalog-head"><p class="eyebrow">Biblioteca editorial</p><h1>Libros de Ahmed Oubali</h1><p>Explora el catálogo de obras narrativas y estudios literarios. Cada ficha reúne una descripción y un enlace a la edición comercial correspondiente cuando está disponible.</p><div class="catalog-summary"><strong>{books.length}</strong><span>títulos en el catálogo</span></div><a class="store-button" href={authorStore} target="_blank" rel="noopener noreferrer">Ver todos los libros en Amazon ↗</a></header>
     <div class="book-grid">{books.map((book)=><article class="book-card"><div class="cover"><span>Ahmed Oubali</span><strong>{book.title}</strong><small>{book.year}</small></div><div class="book-info"><p class="eyebrow">{book.category} · {book.year}</p><h2><a href={import.meta.env.BASE_URL+'books/'+book.slug+'/'}>{book.title}</a></h2><p class="book-description">{book.description}</p><div class="book-actions"><a class="more" href={import.meta.env.BASE_URL+'books/'+book.slug+'/'}>Ver ficha del libro</a><a class="amazon-button" href={book.amazonUrl} target="_blank" rel="noopener noreferrer">Ver en Amazon ↗</a></div></div></article>)}</div>
-    <p class="catalog-note">Los formatos disponibles, precios y condiciones de compra dependen del marketplace y pueden cambiar. Algunos títulos pueden ofrecerse como Kindle o en edición impresa. Este catálogo enlaza con las fichas comerciales; no aloja archivos PDF ni ofrece descargas no autorizadas.</p>
+
   </main>
   </BaseLayout>
 <style>
