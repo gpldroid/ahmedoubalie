@@ -15,7 +15,7 @@ const categories = [...new Set(books.map((book) => book.category))];
     <section class="section-shell publication-catalog" aria-label="Catálogo completo de publicaciones">
       <div class="book-grid">{books.map((book)=><article class="book-card publication-book"><div class="cover"><span>Ahmed Oubali</span><strong>{book.title}</strong><small>{book.year}</small></div><div class="book-info"><span class="publication-type">{book.category} · {book.year}</span><h2>{book.title}</h2><p>{book.description}</p><a class="more" href={import.meta.env.BASE_URL+'books/'+book.slug+'/'}>Abrir ficha <Icon3D name="arrow" /></a></div></article>)}</div>
     </section>
-    <p class="catalog-footnote section-shell">Los datos bibliográficos se muestran según el catálogo del sitio. La disponibilidad, el formato y los detalles comerciales deben comprobarse en la página de cada edición.</p>
+    
   </main>
 </BaseLayout>
 <style>
