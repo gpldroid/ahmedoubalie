@@ -2,40 +2,83 @@
 import Icon3D from './Icon3D.astro';
 ---
 <section id="contact" class="site-section contact-section">
-  <div class="section-shell contact-layout">
-    <div class="contact-intro">
+  <div class="section-shell">
+    <header class="section-heading section-heading--center contact-heading">
       <span class="section-eyebrow">Comunicación directa</span>
       <h2>Contacto y consultas académicas</h2>
       <p>Para invitaciones a conferencias, consultas sobre enseñanza de idiomas, publicaciones filológicas o adquisición de ejemplares.</p>
-      <div class="contact-detail contact-detail-card">
-        <span><Icon3D name="external" /></span>
-        <div><small>Blog oficial</small><a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">ahmedoubali.blogspot.com</a></div>
-      </div>
-      <div class="contact-detail contact-detail-card">
-        <span><Icon3D name="globe" /></span>
-        <div><small>Ubicación</small><p>Marruecos · Tetuán / Tánger</p></div>
-      </div>
-    </div>
-    <div class="contact-panel contact-channel-card">
-      <div class="contact-form">
-        <span class="section-eyebrow">Canal de contacto</span>
-        <h3>Escribe a través del blog oficial</h3>
-        <p>El sitio todavía no tiene configurado un servicio de recepción de formularios ni publica una dirección de correo verificada. Para evitar que tu mensaje se pierda, utiliza el canal disponible en el blog oficial.</p>
-        <a class="contact-submit" href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">Abrir el blog oficial <Icon3D name="external" /></a>
-      </div>
+    </header>
+
+    <div class="contact-layout">
+      <article class="contact-card contact-intro">
+        <div class="editorial-card-top">
+          <span class="contact-icon"><Icon3D name="globe" /></span>
+          <span class="editorial-card-index">01 / INFORMACIÓN</span>
+        </div>
+        <div class="editorial-card-copy">
+          <h3>Canales oficiales</h3>
+          <p class="contact-card-description">Puedes consultar el blog oficial y conocer la ubicación de referencia.</p>
+        </div>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <span class="contact-detail-icon"><Icon3D name="external" /></span>
+            <div>
+              <span class="contact-detail-label">Blog oficial</span>
+              <a href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">ahmedoubali.blogspot.com</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon"><Icon3D name="globe" /></span>
+            <div>
+              <span class="contact-detail-label">Ubicación</span>
+              <p>Marruecos · Tetuán / Tánger</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="contact-card contact-channel-card">
+        <div class="editorial-card-top">
+          <span class="contact-icon"><Icon3D name="external" /></span>
+          <span class="editorial-card-index">02 / CONTACTO</span>
+        </div>
+        <div class="editorial-card-copy">
+          <span class="language-level">Canal de contacto</span>
+          <h3>Escribe a través del blog oficial</h3>
+          <p>El sitio todavía no tiene configurado un servicio de recepción de formularios ni publica una dirección de correo verificada. Para evitar que tu mensaje se pierda, utiliza el canal disponible en el blog oficial.</p>
+        </div>
+        <a class="contact-submit" href="https://ahmedoubali.blogspot.com" target="_blank" rel="noopener noreferrer">
+          Abrir el blog oficial <Icon3D name="external" />
+        </a>
+      </article>
     </div>
   </div>
 </section>
+
 <style>
-.contact-intro,.contact-channel-card{min-width:0;padding:clamp(1.25rem,3vw,2rem);border:1px solid var(--line);border-radius:var(--radius-card);background:linear-gradient(150deg,var(--surface),#f8f5ee);box-shadow:0 12px 32px rgba(35,40,50,.06),inset 0 1px #fff}
-.contact-intro h2{max-width:18ch;margin:.55rem 0 .8rem}
-.contact-intro>p,.contact-form>p{color:var(--muted);font-size:.88rem;line-height:1.8}
-.contact-detail-card{padding:.9rem;margin-top:1rem;border:1px solid var(--line);border-radius:.8rem;background:var(--surface)}
-.contact-detail-card>div{min-width:0;overflow-wrap:anywhere}
-.contact-detail-card a{overflow-wrap:anywhere}
-.contact-form h3{margin:0;color:var(--ink);font:600 clamp(1.35rem,2.5vw,1.8rem)/1.25 'Playfair Display',Georgia,serif}
-.contact-form>p{margin:0}
-.contact-submit{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;width:100%;min-height:50px;padding:.8rem 1rem;border-radius:.7rem;background:var(--ink);color:#f3e5c7;text-decoration:none;font-weight:800}
-.contact-submit:hover{background:var(--gold-deep);color:white}
-@media(max-width:900px){.contact-intro,.contact-channel-card{padding:1.25rem}}
+.contact-heading{margin-bottom:clamp(1.5rem,3vw,2.25rem)}
+.contact-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:clamp(.9rem,2vw,1.35rem)}
+.contact-card{position:relative;display:flex;flex-direction:column;min-width:0;height:100%;padding:clamp(1.25rem,2.5vw,1.8rem);overflow:hidden;border:1px solid var(--line);border-radius:var(--radius-card);background:linear-gradient(150deg,var(--surface),#f8f5ee);box-shadow:0 12px 32px rgba(35,40,50,.06),inset 0 1px #fff;transition:transform .22s ease,box-shadow .22s ease}
+.contact-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(35,40,50,.11),inset 0 1px #fff}
+.contact-icon{display:grid;place-items:center;flex:0 0 3.1rem;width:3.1rem;height:3.1rem;border:1px solid #d7c39e;border-radius:1rem;background:linear-gradient(145deg,#fffdf8,#e8dcc7);color:var(--gold-deep)}
+.contact-icon .icon-3d{width:2rem;height:2rem}
+.contact-card .editorial-card-top{margin-bottom:1.1rem}
+.contact-card .editorial-card-copy{flex:1}
+.contact-card .editorial-card-copy h3{margin:.15rem 0 .55rem;color:var(--ink);font:600 clamp(1.2rem,2vw,1.5rem)/1.25 'Playfair Display',Georgia,serif}
+.contact-card .editorial-card-copy p{margin:0;color:var(--muted);font-size:clamp(.84rem,.2vw + .8rem,.93rem);line-height:1.75}
+.contact-card .editorial-card-copy .language-level{display:inline-flex;margin-bottom:.45rem;color:var(--gold-deep);font-size:.67rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.contact-card-description{margin-bottom:1.2rem!important}
+.contact-details{display:grid;gap:.85rem;margin-top:1.25rem}
+.contact-detail{display:flex;align-items:center;gap:.85rem;min-width:0;padding-top:.9rem;border-top:1px solid var(--line)}
+.contact-detail-icon{display:grid;place-items:center;flex:0 0 2.5rem;width:2.5rem;height:2.5rem;border:1px solid #d9c9aa;border-radius:.8rem;background:linear-gradient(145deg,#fffdf8,#ece3d4);color:var(--gold-deep)}
+.contact-detail-icon .icon-3d{width:1.45rem;height:1.45rem}
+.contact-detail>div{min-width:0}
+.contact-detail-label{display:block;margin-bottom:.15rem;color:var(--gold-deep);font-size:.67rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.contact-detail a,.contact-detail p{display:block;margin:0;color:var(--ink);font-size:clamp(.84rem,.2vw + .8rem,.93rem);font-weight:700;line-height:1.6;overflow-wrap:anywhere;text-decoration:none}
+.contact-detail a:hover{color:var(--gold-deep);text-decoration:underline}
+.contact-submit{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;width:100%;min-height:50px;margin-top:1.4rem;padding:.8rem 1rem;border:1px solid var(--ink);border-radius:.75rem;background:var(--ink);color:#f3e5c7;text-align:center;text-decoration:none;font-size:.88rem;font-weight:800;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.contact-submit:hover{border-color:var(--gold-deep);background:var(--gold-deep);color:#fff;transform:translateY(-1px)}
+@media(max-width:900px){.contact-layout{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:680px){.contact-card{padding:1.2rem}.contact-card .editorial-card-top{margin-bottom:1rem}}
+@media(prefers-reduced-motion:reduce){.contact-card,.contact-submit{transition:none}.contact-card:hover,.contact-submit:hover{transform:none}}
 </style>
