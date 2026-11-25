@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import bookData from '../data/books.json';
 const books = bookData.books;
-const fixedRoutes = ['', 'sobre-mi/', 'idiomas/', 'publicaciones/', 'biblioteca-pdf/', 'books/', 'asistente-literario/', 'contacto/', 'aviso-legal/', 'politica-de-privacidad/', 'politica-de-cookies/', 'terminos-de-uso/'];
+const fixedRoutes = ['', 'sobre-mi/', 'idiomas/', 'publicaciones/', 'biblioteca-pdf/', 'books/', 'asistente-literario/', 'contacto/'];
 export const GET: APIRoute = ({ site }) => {
   const basePath = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
   const base = new URL(basePath, site ?? 'https://gpldroid.github.io/');
