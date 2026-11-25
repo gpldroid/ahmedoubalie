@@ -3,10 +3,56 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BottomTabBar from '../components/BottomTabBar.astro';
 import '../styles/global.css';
-const { title = 'Ahmed Oubali | Escritor, profesor e hispanista', description = 'Sitio oficial de Ahmed Oubali: literatura, investigación semiótica, docencia y publicaciones.' } = Astro.props;
-const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
-const root = import.meta.env.BASE_URL;
+const {
+  title = 'Ahmed Oubali | Escritor, profesor e hispanista',
+  description = 'Sitio oficial de Ahmed Oubali: literatura, investigación semiótica, docencia y publicaciones.',
+  keywords = [],
+  noindex = false,
+  pageSchema = null,
+} = Astro.props;
+const root = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+const siteUrl = Astro.site ? new URL(root, Astro.site).toString() : undefined;
+const routePath = Astro.url.pathname.startsWith(root) ? Astro.url.pathname : root + Astro.url.pathname.replace(/^\\/+/, '');
+const canonical = Astro.site ? new URL(routePath, Astro.site).toString() : undefined;
 const socialImage = Astro.site ? new URL(root + 'images/social-card.svg', Astro.site).toString() : undefined;
+const socialLinks = [
+  'https://ahmedoubali.blogspot.com',
+  'https://m.facebook.com/ahmed.oubali/',
+  'https://www.linkedin.com/in/ahmed-oubali-97ab2554/fr/',
+  'https://www.amazon.com/Books-Ahmed-Oubali/s?rh=n%3A283155%2Cp_27%3AAhmed%2BOubali',
+];
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': siteUrl ? siteUrl + '#author' : undefined,
+      name: 'Ahmed Oubali',
+      url: siteUrl,
+      jobTitle: ['Escritor', 'Hispanista', 'Docente', 'Investigador literario'],
+      knowsLanguage: ['es', 'fr', 'en', 'de', 'ar'],
+      sameAs: socialLinks,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': siteUrl ? siteUrl + '#website' : undefined,
+      name: 'Ahmed Oubali',
+      url: siteUrl,
+      inLanguage: 'es',
+      publisher: siteUrl ? { '@id': siteUrl + '#author' } : undefined,
+    },
+    {
+      '@type': 'WebPage',
+      name: title,
+      description,
+      url: canonical,
+      inLanguage: 'es',
+      isPartOf: siteUrl ? { '@id': siteUrl + '#website' } : undefined,
+      about: siteUrl ? { '@id': siteUrl + '#author' } : undefined,
+      mainEntity: pageSchema || undefined,
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang="es">
@@ -15,7 +61,11 @@ const socialImage = Astro.site ? new URL(root + 'images/social-card.svg', Astro.
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#252a34" />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#252a34" />
+    <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large"} />
+    <meta name="author" content="Ahmed Oubali" />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Ahmed Oubali" />
@@ -23,13 +73,18 @@ const socialImage = Astro.site ? new URL(root + 'images/social-card.svg', Astro.
     <meta property="og:description" content={description} />
     {canonical && <meta property="og:url" content={canonical} />}
     {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialImage && <meta property="og:image:alt" content="Ahmed Oubali — escritor, hispanista y docente" />}
     {socialImage && <meta property="og:image:width" content="1200" />}
     {socialImage && <meta property="og:image:height" content="630" />}
     {socialImage && <meta name="twitter:card" content="summary_large_image" />}
     {socialImage && <meta name="twitter:image" content={socialImage} />}
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {siteUrl && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
     {canonical && <link rel="canonical" href={canonical} />}
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href={root + 'favicon.svg'} />
+    <link rel="shortcut icon" href={root + 'favicon.svg'} />
     <link rel="sitemap" type="application/xml" href={root + 'sitemap.xml'} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
