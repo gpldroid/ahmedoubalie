@@ -25,8 +25,9 @@ for (const relativePath of expectedFiles) {
 const siteBase = process.env.NETLIFY === 'true'
   ? new URL('https://ahmedoubali.netlify.app/')
   : new URL('https://gpldroid.github.io/ahmedoubalie/');
+const indexableRoutes = fixedRoutes.filter((route) => !['aviso-legal', 'politica-de-privacidad', 'politica-de-cookies', 'terminos-de-uso'].includes(route));
 const expectedUrls = [
-  ...fixedRoutes.map((route) => new URL(route ? route + '/' : '', siteBase).href),
+  ...indexableRoutes.map((route) => new URL(route ? route + '/' : '', siteBase).href),
   ...books.map((book) => new URL('books/' + book.slug + '/', siteBase).href),
 ];
 const sitemap = await readFile(resolve(dist, 'sitemap.xml'), 'utf8').catch(() => '');
