@@ -22,6 +22,8 @@ const socialLinks = [
   'https://www.linkedin.com/in/ahmed-oubali-97ab2554/fr/',
   'https://www.amazon.com/Books-Ahmed-Oubali/s?rh=n%3A283155%2Cp_27%3AAhmed%2BOubali',
 ];
+const seoTitle = title.length > 60 ? title.slice(0, 57).trimEnd() + '…' : title;
+const seoDescription = description.length > 155 ? description.slice(0, 152).trimEnd() + '…' : description;
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -44,8 +46,8 @@ const structuredData = {
     },
     {
       '@type': 'WebPage',
-      name: title,
-      description,
+      name: seoTitle,
+      description: seoDescription,
       url: canonical,
       inLanguage: 'es',
       isPartOf: siteUrl ? { '@id': siteUrl + '#website' } : undefined,
@@ -60,7 +62,7 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="description" content={seoDescription} />
     <meta name="theme-color" content="#252a34" />
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large"} />
     <meta name="author" content="Ahmed Oubali" />
@@ -68,8 +70,8 @@ const structuredData = {
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Ahmed Oubali" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={seoTitle} />
+    <meta property="og:description" content={seoDescription} />
     {canonical && <meta property="og:url" content={canonical} />}
     {socialImage && <meta property="og:image" content={socialImage} />}
     {socialImage && <meta property="og:image:alt" content="Ahmed Oubali — escritor, hispanista y docente" />}
@@ -77,13 +79,15 @@ const structuredData = {
     {socialImage && <meta property="og:image:height" content="630" />}
     {socialImage && <meta name="twitter:card" content="summary_large_image" />}
     {socialImage && <meta name="twitter:image" content={socialImage} />}
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={seoTitle} />
+    <meta name="twitter:description" content={seoDescription} />
     {siteUrl && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
     {canonical && <link rel="canonical" href={canonical} />}
-    <title>{title}</title>
+    <title>{seoTitle}</title>
     <link rel="icon" type="image/svg+xml" href={root + 'favicon.svg'} />
     <link rel="shortcut icon" href={root + 'favicon.svg'} />
+    <link rel="mask-icon" href={root + 'favicon.svg'} color="#b18b52" />
+    <link rel="manifest" href={root + 'site.webmanifest'} />
     <link rel="sitemap" type="application/xml" href={root + 'sitemap.xml'} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
