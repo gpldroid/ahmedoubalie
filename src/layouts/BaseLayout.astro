@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import BottomTabBar from '../components/BottomTabBar.astro';
 import '../styles/global.css';
 const { title = 'Ahmed Oubali | Escritor, profesor e hispanista', description = 'Sitio oficial de Ahmed Oubali: literatura, investigación semiótica, docencia y publicaciones.' } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
@@ -40,6 +41,7 @@ const socialImage = Astro.site ? new URL(root + 'images/social-card.svg', Astro.
     <Header />
     <slot />
     <Footer />
+    <BottomTabBar />
     <script>
       const modal = document.querySelector('#book-modal');
       let previousFocus: HTMLElement | null = null;
