@@ -50,18 +50,18 @@ const metadataIssues = [];
 const imagesWithoutAlt = [];
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
-  const relativeFile = relative(dist, file).replaceAll('\\\\', '/');
+  const relativeFile = relative(dist, file);
   if (!relativeFile.startsWith('admin/')) {
-    const pageTitle = html.match(/<title>([\\s\\S]*?)<\\/title>/i)?.[1]?.trim() ?? '';
-    const pageDescription = html.match(/<meta\\s+name="description"\\s+content="([^"]*)"/i)?.[1] ?? '';
-    const canonical = html.match(/<link\\s+rel="canonical"\\s+href="([^"]+)"/i)?.[1] ?? '';
-    const h1Count = (html.match(/<h1\\b/gi) ?? []).length;
+    const pageTitle = html.split('<title>')[1]?.split('</title>')[0]?.trim() ?? '';
+    const pageDescription = html.match(/<meta name="description" content="([^"]*)"/i)?.[1] ?? '';
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1] ?? '';
+    const h1Count = html.split('<h1').length - 1;
     if (!pageTitle || pageTitle.length > 60) metadataIssues.push(relativeFile + ': title missing or longer than 60 characters');
     if (!pageDescription || pageDescription.length > 155) metadataIssues.push(relativeFile + ': meta description missing or longer than 155 characters');
     if (!canonical || !canonical.startsWith(siteBase.origin + siteBase.pathname)) metadataIssues.push(relativeFile + ': canonical missing or outside the GitHub Pages base path');
     if (h1Count !== 1) metadataIssues.push(relativeFile + ': expected exactly one H1, found ' + h1Count);
-    for (const imageTag of html.match(/<img\\b[^>]*>/gi) ?? []) {
-      if (!/\\balt\\s*=/.test(imageTag)) imagesWithoutAlt.push(relativeFile);
+    for (const imageTag of html.match(/<img[^>]*>/gi) ?? []) {
+      if (!imageTag.includes(' alt=')) imagesWithoutAlt.push(relativeFile);
     }
   }
   const hrefs = [...html.matchAll(/\bhref=["']([^"'#][^"']*)["']/gi)].map((match) => match[1]);
