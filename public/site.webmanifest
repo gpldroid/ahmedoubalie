@@ -1,0 +1,19 @@
+{
+  "name": "Ahmed Oubali — Escritor e hispanista",
+  "short_name": "Ahmed Oubali",
+  "description": "Sitio oficial de Ahmed Oubali: literatura, publicaciones, semiótica y docencia.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#f8f5ee",
+  "theme_color": "#252a34",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
