@@ -51,7 +51,10 @@ const imagesWithoutAlt = [];
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
   const relativeFile = relative(dist, file);
-  if (!relativeFile.startsWith('admin/')) {
+  // Google Search Console verification files are machine-readable tokens, not SEO landing pages.
+  // Keep them in the generated site, but exclude them from title/description/canonical/H1 checks.
+  const isGoogleVerificationFile = /^google[a-f0-9]+\.html$/i.test(relativeFile);
+  if (!relativeFile.startsWith('admin/') && !isGoogleVerificationFile) {
     const pageTitle = html.split('<title>')[1]?.split('</title>')[0]?.trim() ?? '';
     const pageDescription = html.match(/<meta name="description" content="([^"]*)"/i)?.[1] ?? '';
     const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1] ?? '';
