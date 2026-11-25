@@ -1,5 +1,21 @@
 ---
 import links from '../data/social-links.json';
 ---
-<div class="social-links">{links.map((item)=><a href={item.url} target="_blank" rel="noopener noreferrer" title={item.label} aria-label={item.label} class={item.class}><i class={item.icon} aria-hidden="true"></i></a>)}</div>
-<style>.social-links{display:flex;align-items:center;gap:.8rem}.social-links a{font-size:1.15rem;text-decoration:none;transition:transform .2s ease}.social-links a:hover{transform:translateY(-2px)}.blogger{color:#C2410C}.facebook{color:#1558B0}.linkedin{color:#0A66C2}.amazon{color:#8A4B00}.site-footer .blogger{color:#FF7A45}.site-footer .facebook{color:#6EA8FF}.site-footer .linkedin{color:#62A7F5}.site-footer .amazon{color:#FFB454}</style>
+<div class="social-links">
+  {links.map((item) => (
+    <a href={item.url} target="_blank" rel="noopener noreferrer" title={item.label} aria-label={item.label} class={item.class}>
+      {item.class === 'blogger' && <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 3.5h6.1c3.3 0 5.2 1.8 5.2 4.7v.7c1.8.6 2.8 2 2.8 4.1v2.1c0 3.4-2.1 5.4-5.6 5.4H8.1c-3.5 0-5.6-2-5.6-5.4V8.9c0-3.4 1.7-5.4 4.7-5.4Zm1.1 5.1a1.4 1.4 0 1 0 0 2.8h5.1a1.4 1.4 0 1 0 0-2.8H8.3Zm0 6a1.4 1.4 0 1 0 0 2.8h7.2a1.4 1.4 0 1 0 0-2.8H8.3Z"/></svg>}
+      {item.class === 'facebook' && <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v1.9H7v3.1h2.8v8z"/></svg>}
+      {item.class === 'linkedin' && <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.2 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3.4v11.5H3.5V9Zm5.5 0h3.3v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.2 2.3 4.2 5.2v6.6h-3.4v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1v6H9V9Z"/></svg>}
+      {item.class === 'amazon' && <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.2 17.2c3.5 2.6 8.4 2.8 12.2.4.4-.2.8.3.4.6-4.1 3.2-10.1 2.9-13.8-.3-.4-.4.4-1 .8-.7ZM17.5 4.2c1.5-.3 2.2.3 2.2 1.7v8.3c0 .5-.5.8-.9.4l-1.4-1.5a5 5 0 0 1-4.1 2c-2.4 0-4-1.4-4-3.6 0-2.4 1.9-3.8 4.8-3.8.9 0 1.9.1 2.7.3V6.8c0-1.1-.5-1.5-1.7-1.5-1 0-2 .2-3 .5-.5.1-.8-.1-.8-.5s.2-.6.6-.7c1.8-.4 3.8-.6 5.6-.4Zm-.7 5.6c-.6-.1-1.3-.2-2-.2-1.7 0-2.6.7-2.6 2 0 1.1.7 1.8 1.8 1.8 1.5 0 2.8-1.2 2.8-2.8v-.8Z"/></svg>}
+    </a>
+  ))}
+</div>
+<style>
+.social-links{display:flex;align-items:center;gap:.8rem}
+.social-links a{display:inline-grid;place-items:center;width:1.5rem;height:1.5rem;text-decoration:none;transition:transform .2s ease}
+.social-links a:hover{transform:translateY(-2px)}
+.social-links svg{display:block;width:1.2rem;height:1.2rem}
+.blogger{color:#C2410C}.facebook{color:#1558B0}.linkedin{color:#0A66C2}.amazon{color:#8A4B00}
+.site-footer .blogger{color:#FF7A45}.site-footer .facebook{color:#6EA8FF}.site-footer .linkedin{color:#62A7F5}.site-footer .amazon{color:#FFB454}
+</style>
