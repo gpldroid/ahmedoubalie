@@ -21,7 +21,7 @@ const path = Astro.url.pathname.replace(import.meta.env.BASE_URL, '').replace(/^
       <span><strong>Ahmed Oubali</strong><small>Escritor · Hispanista · Docente</small></span>
     </a>
     <div class="nav-links">
-      {links.map((item) => <a class:list={[item.contact && 'contact-link']} href={item.href} aria-current={path === item.key ? 'page' : undefined}>{item.label}{item.contact && <Icon3D name="mail" />}</a>)}
+      {links.map((item) => <a class:list={[item.contact && 'contact-link']} href={item.href} aria-current={(path === item.key || (item.key && path.startsWith(item.key + '/'))) ? 'page' : undefined}>{item.label}{item.contact && <Icon3D name="mail" />}</a>)}
       <SocialIcons />
     </div>
     <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><Icon3D name="menu" /></button>
