@@ -581,31 +581,83 @@ input::placeholder, textarea::placeholder { color: #59564f; opacity: 1; }
 }
 
  
-/* Mobile bottom tab bar — matches the site's ink, ivory and antique-gold palette */
+/* Mobile tab bar — shared navigation tokens and the site's existing 3D icon system */
 .bottom-tab-bar { display:none; }
 @media (max-width: 900px) {
-  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  body { padding-bottom:calc(76px + env(safe-area-inset-bottom, 0px)); }
   .bottom-tab-bar {
-    position:fixed; inset:auto 0 0; z-index:120;
-    display:grid; grid-template-columns:repeat(5,minmax(0,1fr));
-    padding:.45rem .35rem calc(.45rem + env(safe-area-inset-bottom, 0px));
-    background:rgba(255,254,250,.97); border-top:1px solid var(--line);
-    box-shadow:0 -8px 28px rgba(36,35,31,.09);
-    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    position:fixed;
+    inset:auto 0 0;
+    z-index:120;
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:.25rem;
+    padding:.5rem .4rem calc(.5rem + env(safe-area-inset-bottom, 0px));
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(255,254,250,.96),rgba(247,245,239,.99));
+    box-shadow:0 -10px 30px rgba(36,35,31,.10),inset 0 1px #fff;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
   }
   .bottom-tab {
-    min-width:0; min-height:54px; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; gap:.28rem;
-    color:var(--muted); text-decoration:none; font-size:.62rem;
-    font-weight:700; letter-spacing:-.01em; border-radius:12px;
-    transition:color .2s ease, background .2s ease, transform .2s ease;
+    min-width:0;
+    min-height:58px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:.32rem;
+    padding:.3rem .1rem;
+    border:1px solid transparent;
+    border-radius:.85rem;
+    color:var(--muted);
+    background:transparent;
+    text-decoration:none;
+    font-size:.61rem;
+    font-weight:700;
+    line-height:1.2;
+    letter-spacing:-.01em;
+    transition:color .2s ease,background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+    -webkit-tap-highlight-color:transparent;
   }
-  .bottom-tab i { font-size:1.05rem; line-height:1; }
-  .bottom-tab.is-active { color:var(--gold-deep); background:rgba(177,138,73,.10); }
-  .bottom-tab:active { transform:translateY(1px); }
-  .bottom-tab:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  /* Reuse Icon3D's existing 3D treatment instead of a separate icon style. */
+  .bottom-tab .icon-3d {
+    width:2rem;
+    height:2rem;
+    padding:.38rem;
+    color:#f7e7c5;
+    transform:translateY(0) perspective(80px) rotateX(0deg);
+    transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;
+  }
+  .bottom-tab span:last-child { max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .bottom-tab:hover {
+    color:var(--gold-deep);
+    background:rgba(177,138,73,.07);
+  }
+  .bottom-tab:hover .icon-3d,
+  .bottom-tab:focus-visible .icon-3d {
+    transform:translateY(-3px) perspective(80px) rotateX(8deg);
+    box-shadow:inset 1px 1px 2px #fff9,inset -2px -3px 5px #44351c70,0 9px 15px #24283345;
+  }
+  .bottom-tab.is-active {
+    color:var(--gold-deep);
+    background:linear-gradient(145deg,#fffdf8,#f0e7d7);
+    border-color:#d9c9aa;
+    box-shadow:0 5px 12px rgba(36,35,31,.07),inset 0 1px #fff;
+  }
+  .bottom-tab.is-active .icon-3d {
+    transform:translateY(-2px) perspective(80px) rotateX(7deg);
+    border-color:#fff;
+    box-shadow:inset 1px 1px 2px #fff9,inset -2px -3px 5px #44351c70,0 8px 14px #24283340;
+  }
+  .bottom-tab:active { transform:translateY(1px) scale(.98); }
+  .bottom-tab:focus-visible { outline:2px solid var(--gold-deep); outline-offset:2px; }
 }
 @media (min-width:901px) {
   body { padding-bottom:0; }
   .bottom-tab-bar { display:none !important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .bottom-tab,.bottom-tab .icon-3d { transition:none !important; }
+  .bottom-tab:hover .icon-3d,.bottom-tab:focus-visible .icon-3d,.bottom-tab.is-active .icon-3d { transform:none; }
 }
