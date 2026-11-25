@@ -12,7 +12,8 @@ const {
 } = Astro.props;
 const root = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 const siteUrl = Astro.site ? new URL(root, Astro.site).toString() : undefined;
-const routePath = Astro.url.pathname.startsWith(root) ? Astro.url.pathname : root + Astro.url.pathname.replace(/^\\/+/, '');
+const routeSuffix = Astro.url.pathname.split('/').filter(Boolean).join('/');
+const routePath = Astro.url.pathname.startsWith(root) ? Astro.url.pathname : root + (routeSuffix ? routeSuffix + (Astro.url.pathname.endsWith('/') ? '/' : '') : '');
 const canonical = Astro.site ? new URL(routePath, Astro.site).toString() : undefined;
 const socialImage = Astro.site ? new URL(root + 'images/social-card.svg', Astro.site).toString() : undefined;
 const socialLinks = [
@@ -59,8 +60,6 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <meta name="theme-color" content="#252a34" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#252a34" />
     <meta name="robots" content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large"} />
