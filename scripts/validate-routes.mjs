@@ -46,8 +46,24 @@ async function walk(directory) {
 }
 const htmlFiles = await walk(dist);
 const brokenLinks = [];
+const metadataIssues = [];
+const imagesWithoutAlt = [];
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
+  const relativeFile = relative(dist, file).replaceAll('\\\\', '/');
+  if (!relativeFile.startsWith('admin/')) {
+    const pageTitle = html.match(/<title>([\\s\\S]*?)<\\/title>/i)?.[1]?.trim() ?? '';
+    const pageDescription = html.match(/<meta\\s+name="description"\\s+content="([^"]*)"/i)?.[1] ?? '';
+    const canonical = html.match(/<link\\s+rel="canonical"\\s+href="([^"]+)"/i)?.[1] ?? '';
+    const h1Count = (html.match(/<h1\\b/gi) ?? []).length;
+    if (!pageTitle || pageTitle.length > 60) metadataIssues.push(relativeFile + ': title missing or longer than 60 characters');
+    if (!pageDescription || pageDescription.length > 155) metadataIssues.push(relativeFile + ': meta description missing or longer than 155 characters');
+    if (!canonical || !canonical.startsWith(siteBase.origin + siteBase.pathname)) metadataIssues.push(relativeFile + ': canonical missing or outside the GitHub Pages base path');
+    if (h1Count !== 1) metadataIssues.push(relativeFile + ': expected exactly one H1, found ' + h1Count);
+    for (const imageTag of html.match(/<img\\b[^>]*>/gi) ?? []) {
+      if (!/\\balt\\s*=/.test(imageTag)) imagesWithoutAlt.push(relativeFile);
+    }
+  }
   const hrefs = [...html.matchAll(/\bhref=["']([^"'#][^"']*)["']/gi)].map((match) => match[1]);
   for (const href of hrefs) {
     if (/^(https?:|mailto:|tel:|javascript:|data:|\/\/)/i.test(href)) continue;
@@ -62,11 +78,13 @@ for (const file of htmlFiles) {
   }
 }
 
-if (missingFiles.length || missingUrls.length || brokenLinks.length) {
+if (missingFiles.length || missingUrls.length || brokenLinks.length || metadataIssues.length || imagesWithoutAlt.length) {
   console.error('Falló la validación de rutas y enlaces internos.');
   if (missingFiles.length) console.error('Archivos no generados:', missingFiles);
   if (missingUrls.length) console.error('URLs ausentes del sitemap:', missingUrls);
   if (brokenLinks.length) console.error('Enlaces internos sin destino:', brokenLinks);
+  if (metadataIssues.length) console.error('Problemas SEO on-page:', metadataIssues);
+  if (imagesWithoutAlt.length) console.error('Imágenes sin atributo alt:', [...new Set(imagesWithoutAlt)]);
   process.exit(1);
 }
-console.log('Validación correcta: ' + fixedRoutes.length + ' páginas fijas, ' + books.length + ' fichas, ' + htmlFiles.length + ' documentos HTML, sitemap y enlaces internos.');
+console.log('Validación correcta: ' + fixedRoutes.length + ' páginas fijas, ' + books.length + ' fichas, ' + htmlFiles.length + ' documentos HTML, sitemap, metadatos SEO, encabezados e imágenes accesibles.');
