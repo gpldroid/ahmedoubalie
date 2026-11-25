@@ -1,5 +1,6 @@
 ---
 import Icon3D from './Icon3D.astro';
+import bookData from '../data/books.json';
 const root = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
 <section class="editorial-hero">
@@ -15,7 +16,7 @@ const root = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       </div>
       <div class="hero-facts" aria-label="Datos destacados">
         <div><strong>05</strong><span>Idiomas impartidos</span></div>
-        <div><strong>15<span>+</span></strong><span>Novelas y ensayos</span></div>
+        <div><strong>{bookData.books.length}</strong><span>Obras catalogadas</span></div>
         <div><strong>PDF</strong><span>Acceso abierto</span></div>
       </div>
     </div>
